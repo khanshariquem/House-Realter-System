@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hunter: one
+  house_belongs_to: MyString
+  query: MyString
+
+two:
+  hunter: two
+  house_belongs_to: MyString
+  query: MyString

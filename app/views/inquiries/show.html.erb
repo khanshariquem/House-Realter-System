@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hunter:</strong>
+  <%= @inquiry.hunter %>
+</p>
+
+<p>
+  <strong>House belongs to:</strong>
+  <%= @inquiry.house_belongs_to %>
+</p>
+
+<p>
+  <strong>Query:</strong>
+  <%= @inquiry.query %>
+</p>
+
+<%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
+<%= link_to 'Back', inquiries_path %>

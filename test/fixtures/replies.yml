@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  realtor: one
+  inquiry: one
+  response: MyString
+
+two:
+  realtor: two
+  inquiry: two
+  response: MyString
