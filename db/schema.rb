@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_204847) do
+ActiveRecord::Schema.define(version: 2018_09_27_160816) do
 
   create_table "buyers", force: :cascade do |t|
     t.integer "house_id"
@@ -49,14 +49,6 @@ ActiveRecord::Schema.define(version: 2018_09_23_204847) do
     t.index ["company_id"], name: "index_houses_on_company_id"
   end
 
-  create_table "hunters", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "contact_mode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_hunters_on_user_id"
-  end
-
   create_table "inquiries", force: :cascade do |t|
     t.integer "hunter_id"
     t.string "house_belongs_to"
@@ -64,15 +56,6 @@ ActiveRecord::Schema.define(version: 2018_09_23_204847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hunter_id"], name: "index_inquiries_on_hunter_id"
-  end
-
-  create_table "realtors", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_realtors_on_company_id"
-    t.index ["user_id"], name: "index_realtors_on_user_id"
   end
 
   create_table "replies", force: :cascade do |t|
@@ -86,12 +69,26 @@ ActiveRecord::Schema.define(version: 2018_09_23_204847) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.boolean "is_admin"
+    t.boolean "is_realtor"
+    t.boolean "is_hunter"
+    t.string "fname"
+    t.string "contact"
+    t.string "contact_mode"
+    t.integer "company_id"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.index ["company_id"], name: "index_users_on_company_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

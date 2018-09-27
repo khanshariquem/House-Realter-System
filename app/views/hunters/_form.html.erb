@@ -10,15 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class="col-md-6 mb-3">
+    <%= form.label :name ,'User Name'%>
+    <%= form.text_field :name ,{:class=>'form-control'}%>
   </div>
 
-  <div class="field">
-    <%= form.label :contact_mode %>
-    <%= form.text_field :contact_mode %>
+  <div class="col-md-6 mb-3">
+    <%= form.label :email ,'Email Address'%>
+    <%= form.text_field :email,{:class=>'form-control'} %>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <%= form.label :password , 'Password' %>
+    <%= form.password_field  :password ,{:class=>'form-control'}%>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <%= form.label :phone ,'Contact' %>
+    <%= form.text_field :phone,{:class=>'form-control'} %>
+  </div>
+
+  <div class="col-md-6 mb-3" , id="contact_mode" >
+    <%= form.label :contact_mode, 'Preferred Mode Of Contact' %>
+    <%= form.text_field :contact_mode,{:class=>'form-control'} %>
   </div>
 
   <div class="actions">

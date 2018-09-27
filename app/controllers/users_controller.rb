@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
   def index
+    if user_signed_in? && (not current_user.is_admin)
+      respond_to do |format|
+        format.html { redirect_to "to write home url" }
+      end
+    end
     @users = User.all
   end
 
@@ -14,6 +19,11 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    if user_signed_in? && (not current_user.is_admin)
+      respond_to do |format|
+        format.html { redirect_to "to write home url" }
+      end
+    end
     @user = User.new
   end
 
@@ -25,7 +35,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -69,6 +78,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :phone)
+      params.require(:user).permit(:id, :fname,:contact,:email,:password,:is_realtor,:is_hunter,:company_id,:contact_mode)
     end
+
 end

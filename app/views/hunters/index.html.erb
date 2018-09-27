@@ -5,7 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
       <th>Contact mode</th>
       <th colspan="3"></th>
     </tr>
@@ -14,7 +16,9 @@
   <tbody>
     <% @hunters.each do |hunter| %>
       <tr>
-        <td><%= hunter.user %></td>
+        <td><%= hunter.user.name %></td>
+        <td><%= hunter.user.email %></td>
+        <td><%= hunter.user.phone %></td>
         <td><%= hunter.contact_mode %></td>
         <td><%= link_to 'Show', hunter %></td>
         <td><%= link_to 'Edit', edit_hunter_path(hunter) %></td>

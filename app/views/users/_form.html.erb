@@ -11,27 +11,67 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="col-md-6 mb-3">
+    <%= form.label :name ,'User Name'%>
+    <%= form.text_field :name ,{:class=>'form-control'}%>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="col-md-6 mb-3">
+    <%= form.label :email ,'Email Address'%>
+    <%= form.text_field :email,{:class=>'form-control'} %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="col-md-6 mb-3">
+    <%= form.label :password , 'Password' %>
+    <%= form.password_field  :password ,{:class=>'form-control'}%>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+  <div class="col-md-6 mb-3">
+    <%= form.label :phone ,'Contact' %>
+    <%= form.text_field :phone,{:class=>'form-control'} %>
   </div>
 
-  <div class="actions">
+  <div class="col-md-6 mb-3">
+    <%= form.label 'Realtor'  %>
+    <%= form.check_box  :r_checkbox,{:class=>'form-control'} %>
+  </div>
+  <div class="col-md-6 mb-3" , id="company", style="display:none">
+    <%= form.label :company_id , 'Select Company' %>
+    <%= form.collection_select :company_id,Company.order(:c_name),:id,:c_name,prompt: true%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label 'House Hunter' %>
+    <%= form.check_box  :hh_checkbox,{:class=>'form-control'} %>
+  </div>
+  <div class="col-md-6 mb-3" , id="contact_mode" , style="display:none">
+    <%= form.label :contact_mode, 'Preferred Mode Of Contact' %>
+    <%= form.text_field :contact_mode,{:class=>'form-control'} %>
+  </div>
+
+  <script type="text/javascript">
+      var checkbox = document.getElementById('user_hh_checkbox');
+      var details_div = document.getElementById('contact_mode');
+      checkbox.onchange = function() {
+          if(this.checked) {
+              details_div.style['display'] = 'block';
+          } else {
+              details_div.style['display'] = 'none';
+          }
+      };
+      var checkbox_2 = document.getElementById('user_r_checkbox');
+      var x = document.getElementById('company');
+      checkbox_2.onchange = function() {
+          if(this.checked) {
+              x.style['display'] = 'block';
+          } else {
+              x.style['display'] = 'none';
+          }
+      };
+
+  </script>
+
+
+  <div class="col-md-6 mb-3">
     <%= form.submit %>
   </div>
 <% end %>

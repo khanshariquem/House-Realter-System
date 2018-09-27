@@ -25,7 +25,8 @@ class HuntersController < ApplicationController
   # POST /hunters.json
   def create
     @hunter = Hunter.new(hunter_params)
-
+    @user = User.create(:name=>params[:hunter][:name],:email=>params[:hunter][:email],:password=>params[:hunter][:password],:phone=>params[:hunter][:phone])
+    @user.hunter = @hunter
     respond_to do |format|
       if @hunter.save
         format.html { redirect_to @hunter, notice: 'Hunter was successfully created.' }
@@ -40,6 +41,8 @@ class HuntersController < ApplicationController
   # PATCH/PUT /hunters/1
   # PATCH/PUT /hunters/1.json
   def update
+    @user = @hunter.user
+    @user.update :name=>params[:hunter][:user_attributes][:name],:email=>params[:hunter][:user_attributes][:email],:password=>params[:hunter][:user_attributes][:password],:phone=>params[:hunter][:user_attributes][:phone]
     respond_to do |format|
       if @hunter.update(hunter_params)
         format.html { redirect_to @hunter, notice: 'Hunter was successfully updated.' }
@@ -60,15 +63,14 @@ class HuntersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hunter
       @hunter = Hunter.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def hunter_params
-      params.require(:hunter).permit(:user_id, :contact_mode)
+      p params
+      params.require(:hunter).permit(:user_id ,:contact_mode)
     end
 end
