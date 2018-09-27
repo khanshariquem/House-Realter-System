@@ -20,8 +20,8 @@
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-*.idea/workspace.xml
-
+/.idea/workspace.xml
+.idea/workspace.xml
 /node_modules
 /yarn-error.log
 
