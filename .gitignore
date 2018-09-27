@@ -21,6 +21,7 @@
 /storage/*
 !/storage/.keep
 /.idea/workspace.xml
+.idea/*
 .idea/workspace.xml
 /node_modules
 /yarn-error.log
