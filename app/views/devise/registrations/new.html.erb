@@ -25,46 +25,46 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-  <div class="col-md-6 mb-3">
-    <%= f.label :contact,"Contact Number" %><br />
-    <%= f.text_field :contact %>
-  </div>
+<!--  <div class="col-md-6 mb-3">-->
+<!--    <%#= f.label :contact,"Contact Number" %><br />-->
+    <%#= f.text_field :contact %>
+<!--  </div>-->
   <div class="col-md-6 mb-3">
     <%= f.label 'Realtor'  %>
     <%= f.check_box  :is_realtor %>
   </div>
-  <div class="col-md-6 mb-3" , id="company", style="display:none">
-    <%= f.label :company_id , 'Select Company' %>
-    <%= f.collection_select :company_id,Company.order(:c_name),:id,:c_name,prompt: true%>
-  </div>
+<!--  <div class="col-md-6 mb-3" , id="company", style="display:none">-->
+    <%#= f.label :company_id , 'Select Company' %>
+    <%#= f.collection_select :company_id,Company.order(:c_name),:id,:c_name,prompt: true%>
+<!--  </div>-->
   <div class="col-md-6 mb-3">
     <%= f.label 'House Hunter' %>
     <%= f.check_box  :is_hunter %>
   </div>
-  <div class="col-md-6 mb-3" , id="contact_mode" , style="display:none">
-    <%= f.label :contact_mode, 'Preferred Mode Of Contact' %>
-    <%= f.text_field :contact_mode,{:class=>'form-control'} %>
-  </div>
-  <script type="text/javascript">
-      var checkbox = document.getElementById('user_is_hunter');
-      var details_div = document.getElementById('contact_mode');
-      checkbox.onchange = function() {
-          if(this.checked) {
-              details_div.style['display'] = 'block';
-          } else {
-              details_div.style['display'] = 'none';
-          }
-      };
-      var checkbox_2 = document.getElementById('user_is_realtor');
-      var x = document.getElementById('company');
-      checkbox_2.onchange = function() {
-          if(this.checked) {
-              x.style['display'] = 'block';
-          } else {
-              x.style['display'] = 'none';
-          }
-      };
-  </script>
+<!--  <div class="col-md-6 mb-3" , id="contact_mode" , style="display:none">-->
+    <%#= f.label :contact_mode, 'Preferred Mode Of Contact' %>
+    <%#= f.text_field :contact_mode,{:class=>'form-control'} %>
+<!--  </div>-->
+<!--  <script type="text/javascript">-->
+<!--      var checkbox = document.getElementById('user_is_hunter');-->
+<!--      var details_div = document.getElementById('contact_mode');-->
+<!--      checkbox.onchange = function() {-->
+<!--          if(this.checked) {-->
+<!--              details_div.style['display'] = 'block';-->
+<!--          } else {-->
+<!--              details_div.style['display'] = 'none';-->
+<!--          }-->
+<!--      };-->
+<!--      var checkbox_2 = document.getElementById('user_is_realtor');-->
+<!--      var x = document.getElementById('company');-->
+<!--      checkbox_2.onchange = function() {-->
+<!--          if(this.checked) {-->
+<!--              x.style['display'] = 'block';-->
+<!--          } else {-->
+<!--              x.style['display'] = 'none';-->
+<!--          }-->
+<!--      };-->
+<!--  </script>-->
   <div class="actions">
     <%= f.submit "Sign up"  %>
   </div>
