@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
+
   resources :replies
   resources :inquiries
   resources :buyers

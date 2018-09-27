@@ -12,8 +12,12 @@
 
   <body>
   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">House Selling and Buying Tracking System</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">HnS Systems</a>
+
+    <%= link_to 'Homepage', home_index_path, :class => 'navbar-link' %>
+    <%= link_to 'Companies', companies_path, :class => 'navbar-link' %>
     <p class="navbar-text pull-right">
+
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -22,6 +26,7 @@
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
+
     </p>
   </nav>
     <% if notice %>
