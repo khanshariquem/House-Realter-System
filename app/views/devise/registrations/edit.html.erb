@@ -31,6 +31,15 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="col-md-6 mb-3">
+    <%= f.label 'House Hunter role' %>
+    <%= f.check_box  :is_hunter %>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= f.label 'Realtor role'  %>
+    <%= f.check_box  :is_realtor %>
+  </div>
+
   <% if current_user.is_realtor %>
     <div class="col-md-6 mb-3">
       <%= f.label :company_id, 'Select Company' %>
