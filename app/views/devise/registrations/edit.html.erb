@@ -1,10 +1,10 @@
 <h2 class="col-md-6 mb-3">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="col-md-6 mb-3">
+    <%= f.label :email %><br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -12,32 +12,48 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div class="col-md-6 mb-3">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br/>
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
-      <br />
+      <br/>
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="col-md-6 mb-3">
+    <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div class="col-md-6 mb-3">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
+  <% if current_user.is_realtor %>
+    <div class="col-md-6 mb-3">
+      <%= f.label :company_id, 'Select Company' %>
+      <%= f.collection_select :company_id, Company.order(:c_name), :id, :c_name, prompt: true %>
+    </div>
+  <% end %>
+  <% if current_user.is_hunter %>
+    <div class="col-md-6 mb-3" , id="contact_mode">
+      <%= f.label :contact_mode, 'Preferred Mode Of Contact' %>
+      <%= f.text_field :contact_mode %>
+    </div>
+  <% end %>
+  <div class="col-md-6 mb-3">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<% if !current_user.is_admin %>
+  <div class="col-md-6 mb-3">Unhappy?
+    <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %>
+  </div>
+<% end %>
+<div class="col-md-6 mb-3">
+  <%= link_to "Back", :back %>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
