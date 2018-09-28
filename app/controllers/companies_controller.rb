@@ -6,12 +6,10 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all
   end
-
   # GET /companies/1
   # GET /companies/1.json
   def show
   end
-
   # GET /companies/new
   def new
     @company = Company.new
@@ -28,8 +26,13 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
+        if current_user.is_realtor
+          format.html { redirect_to edit_user_registration_path , notice: 'Company was successfully created.' }
+         format.json { render :show, status: :created, location: @user }
+        else
+          format.html { redirect_to @company, notice: 'Company was successfully created.' }
+          format.json { render :show, status: :created, location: @company }
+        end
       else
         format.html { render :new }
         format.json { render json: @company.errors, status: :unprocessable_entity }
@@ -54,7 +57,7 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
-    @company.realtor.destroy
+    @company.user.destroy
     @company.houses.destroy
     @company.destroy
     respond_to do |format|

@@ -1,48 +1,43 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-
   # GET /users
   # GET /users.json
   def index
-    if user_signed_in? && (not current_user.is_admin)
-      respond_to do |format|
-        format.html { redirect_to "to write home url" }
-      end
-    end
+    validates_admin_only
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    validates_admin_only
+    set_user
   end
 
   # GET /users/new
   def new
-    if user_signed_in? && (not current_user.is_admin)
-      respond_to do |format|
-        format.html { redirect_to "to write home url" }
-      end
-    end
+
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
+    validates_admin_only
+    set_user
   end
 
   # POST /users
   # POST /users.json
   def create
+    validates_admin_only
     @user = User.new(user_params)
-    p "user create"
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html {redirect_to users_path, notice: 'User was successfully created.'}
+        format.json {render :show, status: :created, location: @user}
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @user.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -50,13 +45,14 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    validates_admin_only
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.html {redirect_to @user, notice: 'User was successfully updated.'}
+        format.json {render :show, status: :ok, location: @user}
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @user.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -64,22 +60,33 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    validates_admin_only
+    set_user
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to users_url, notice: 'User was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:id, :fname,:contact,:email,:password,:is_realtor,:is_hunter,:company_id,:contact_mode)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:fname, :email, :password, :is_realtor, :is_hunter)
+  end
+
+  def validates_admin_only
+    if user_signed_in? && !(current_user.is_admin)
+      respond_to do |format|
+        format.html {redirect_to home_index_path}
+      end
     end
+  end
 
 end
