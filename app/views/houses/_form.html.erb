@@ -14,7 +14,7 @@
   <div class="field">
 
     <% if current_user.is_realtor %>
-      <%= form.label :company-id %>
+      <%= form.label :company_id %>
       <input type="textfield" value="<%= current_user.company_id  %>" disabled/>
     <% end %>
 

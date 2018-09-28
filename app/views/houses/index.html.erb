@@ -16,7 +16,12 @@
       <th>Basement</th>
       <th>Owner</th>
       <th>Contact</th>
-      <th colspan="3"></th>
+      <% if  current_user.is_admin %>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+      <% end %>
+
     </tr>
   </thead>
 
@@ -34,7 +39,7 @@
         <td><%= house.owner %></td>
         <td><%= house.contact %></td>
         <td><%= link_to 'Show', house %></td>
-        <% if house.company_id==current_user.company_id %>
+        <% if house.company_id==current_user.company_id or current_user.is_admin %>
           <td><%= link_to 'Edit', edit_house_path(house) %></td>
           <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>|
         <% end %>
