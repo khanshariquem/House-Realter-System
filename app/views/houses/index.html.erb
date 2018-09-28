@@ -2,6 +2,7 @@
 
 <h1>Houses</h1>
 
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -33,8 +34,11 @@
         <td><%= house.owner %></td>
         <td><%= house.contact %></td>
         <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if house.company_id==current_user.company_id %>
+          <td><%= link_to 'Edit', edit_house_path(house) %></td>
+          <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>|
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>

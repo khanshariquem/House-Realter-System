@@ -12,8 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
+
+    <% if current_user.is_realtor %>
+      <%= form.label :company-id %>
+      <input type="textfield" value="<%= current_user.company_id  %>" disabled/>
+    <% end %>
+
+    <% if current_user.is_admin %>
+      <%= form.label :company_id, 'Select Company' %>
+      <%= form.collection_select :company_id, Company.order(:c_name), :id, :c_name, prompt: true %>
+    <% end %>
+
+
   </div>
 
   <div class="field">
