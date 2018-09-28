@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   resources :hunters
   # resources :users
   resources :companies
-  resources :users,  :only => [:index, :new, :create, :destroy]
+  resources :users
   devise_for :users,:path => 'u', :controllers => {:registrations => "registrations"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/users', to: 'users#new'
+  match '/users/new', to: 'users#new', via: 'get'
+  match '/users', to: 'users#create', via: 'post'
 end
