@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
+
 <br>
+<h1>House Details</h1>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Company</th>
+    <th>Company Name</th>
     <th>Location</th>
     <th>Size</th>
     <th>Year</th>
@@ -13,12 +14,13 @@
     <th>Basement</th>
     <th>Owner</th>
     <th>Contact</th>
+    <th>Listed By</th>
   </tr>
   </thead>
 
   <tbody>
     <tr>
-      <td><%= @house.company_id %></td>
+      <td><%= @house.company.c_name %></td>
       <td><%= @house.location %></td>
       <td><%= @house.size %></td>
       <td><%= @house.year %></td>
@@ -28,10 +30,33 @@
       <td><%= @house.basement %></td>
       <td><%= @house.owner %></td>
       <td><%= @house.contact %></td>
+      <td><%= @house.user.fname %></td>
     </tr>
 
   </tbody>
 </table>
-
+<% if @house.user_id==current_user.id or current_user.is_admin %>
 <%= link_to 'Edit', edit_house_path(@house) %> |
+<br>
+<br>
+<h1>Inqueries</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Subject</th>
+    <th>Query</th>
+    <th>Inquiry From</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @house.inquiries.each do |inquiry| %>
+  <tr>
+    <td><%= inquiry.subject %></td>
+    <td><%= inquiry.content %></td>
+    <td><%= inquiry.user.fname %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
 <%= link_to 'Back', houses_path %>

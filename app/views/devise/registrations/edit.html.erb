@@ -42,8 +42,9 @@
 
   <% if current_user.is_realtor %>
     <div class="col-md-6 mb-3">
-      <%= f.label :company_id, 'Select Company' %>
-        <%= f.collection_select :company_id, Company.order(:c_name), :id, :c_name, prompt: true %>
+      <%= f.label :company_id, 'Select Company/Add New Company' %>
+      <%= f.collection_select :company_id, Company.order(:c_name), :id, :c_name, prompt: true %>
+      <%= link_to 'Add a Company', new_company_path %>
     </div>
   <% end %>
   <% if current_user.is_hunter %>

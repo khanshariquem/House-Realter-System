@@ -1,4 +1,5 @@
 class Inquiry < ApplicationRecord
-  belongs_to :hunter
+  belongs_to :user
+  belongs_to :house
   has_many  :replies
 end

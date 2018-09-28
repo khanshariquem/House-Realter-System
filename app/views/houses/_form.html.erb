@@ -4,18 +4,22 @@
       <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
 
       <ul>
-      <% house.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% house.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-
+    <div style="display: none;">
+      <%= form.text_field :user_id, value: current_user.id %>
+    </div>
     <% if current_user.is_realtor %>
-      <%= form.label :company_id %>
-      <input type="textfield" value="<%= current_user.company_id  %>" disabled/>
+      <div style="display: none;">
+        <%= form.label :company_id, 'Company' %>
+        <%= form.collection_select :company_id, Company.order(:c_name), :id, :c_name, {:selected => current_user.company_id} %>
+      </div>
     <% end %>
 
     <% if current_user.is_admin %>
