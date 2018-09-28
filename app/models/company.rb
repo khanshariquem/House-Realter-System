@@ -1,4 +1,4 @@
 class Company < ApplicationRecord
   has_many :houses
-  has_one :realtor
+  has_many :User
 end
