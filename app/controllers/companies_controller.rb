@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!,:set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
   # GET /companies.json
@@ -17,13 +18,13 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    validate_user
   end
 
   # POST /companies
   # POST /companies.json
   def create
     @company = Company.new(company_params)
-
     respond_to do |format|
       if @company.save
         if current_user.is_realtor
@@ -43,6 +44,7 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
+    validate_user
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
@@ -57,6 +59,7 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
+    validate_user
     @company.user.destroy
     @company.houses.destroy
     @company.destroy
@@ -75,5 +78,12 @@ class CompaniesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:company).permit(:c_name, :website, :address, :size, :year, :revenue, :synopsis)
+    end
+    def validate_user
+      if user_signed_in? && !(current_user.is_admin || current_user.company_id == @company.id)
+        respond_to do |format|
+          format.html {redirect_to home_index_path}
+        end
+      end
     end
 end

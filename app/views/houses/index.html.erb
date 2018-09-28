@@ -1,54 +1,52 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Houses</h1>
-
+<h1>House Listings</h1>
 
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th>Company</th>
-      <th>Location</th>
-      <th>Size</th>
-      <th>Year</th>
-      <th>Style</th>
-      <th>Price</th>
-      <th>Floors</th>
-      <th>Basement</th>
-      <th>Owner</th>
-      <th>Contact</th>
-      <% if  current_user.is_admin %>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Destroy</th>
-      <% end %>
+  <tr>
+    <th>Company Name</th>
+    <th>Location</th>
+    <th>Size</th>
+    <th>Year</th>
+    <th>Style</th>
+    <th>Price</th>
+    <th>Floors</th>
+    <th>Basement</th>
+    <th>Owner</th>
+    <th>Contact</th>
+    <th>Listed By</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
 
-    </tr>
+  </tr>
   </thead>
 
   <tbody>
-    <% @houses.each do |house| %>
-      <tr>
-        <td><%= house.company_id %></td>
-        <td><%= house.location %></td>
-        <td><%= house.size %></td>
-        <td><%= house.year %></td>
-        <td><%= house.style %></td>
-        <td><%= house.price %></td>
-        <td><%= house.floors %></td>
-        <td><%= house.basement %></td>
-        <td><%= house.owner %></td>
-        <td><%= house.contact %></td>
-        <td><%= link_to 'Show', house %></td>
-        <% if house.company_id==current_user.company_id or current_user.is_admin %>
-          <td><%= link_to 'Edit', edit_house_path(house) %></td>
-          <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>|
-        <% end %>
+  <% @houses.each do |house| %>
+    <tr>
+      <td><%= house.company.c_name %></td>
+      <td><%= house.location %></td>
+      <td><%= house.size %></td>
+      <td><%= house.year %></td>
+      <td><%= house.style %></td>
+      <td><%= house.price %></td>
+      <td><%= house.floors %></td>
+      <td><%= house.basement %></td>
+      <td><%= house.owner %></td>
+      <td><%= house.contact %></td>
+      <td><%= house.user.fname %></td>
+      <td><%= link_to 'Show', house %></td>
+      <% if house.user_id == current_user.id or current_user.is_admin %>
+        <td><%= link_to 'Edit', edit_house_path(house) %></td>
+        <td><%= link_to 'Destroy', house, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
 
-      </tr>
-    <% end %>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New House', new_house_path %>
+<%= link_to 'Back', home_index_path %>
