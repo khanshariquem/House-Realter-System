@@ -19,6 +19,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  <% if !current_user.is_admin %>
   <div class="col-md-6 mb-3">
     <%= f.label :password %>
     <% if @minimum_password_length %>c
@@ -30,6 +31,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <% end %>
   <div class="col-md-6 mb-3">
     <%= f.label 'Realtor'  %>
     <%= f.check_box  :is_realtor %>
