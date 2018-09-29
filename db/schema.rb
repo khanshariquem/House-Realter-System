@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_065049) do
+ActiveRecord::Schema.define(version: 2018_09_29_004419) do
 
   create_table "buyers", force: :cascade do |t|
     t.integer "house_id"
@@ -60,13 +60,12 @@ ActiveRecord::Schema.define(version: 2018_09_28_065049) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.integer "realtor_id"
     t.integer "inquiry_id"
     t.string "response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["inquiry_id"], name: "index_replies_on_inquiry_id"
-    t.index ["realtor_id"], name: "index_replies_on_realtor_id"
   end
 
   create_table "users", force: :cascade do |t|

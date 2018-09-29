@@ -10,6 +10,7 @@ class HousesController < ApplicationController
   # GET /houses/1
   # GET /houses/1.json
   def show
+    @inquiry = Inquiry.new
   end
 
   # GET /houses/new

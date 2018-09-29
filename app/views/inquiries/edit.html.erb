@@ -1,6 +1,5 @@
-<h1>Editing Inquiry</h1>
+<h1>Edit Inquiry</h1>
 
 <%= render 'form', inquiry: @inquiry %>
 
-<%= link_to 'Show', @inquiry %> |
-<%= link_to 'Back', inquiries_path %>
+<%= link_to 'Back', house_path(@inquiry.house) %>

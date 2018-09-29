@@ -1,19 +1,58 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Hunter:</strong>
-  <%= @inquiry.hunter %>
-</p>
-
-<p>
-  <strong>House belongs to:</strong>
-  <%= @inquiry.house_belongs_to %>
+  <strong>Subject:</strong>
+  <%= @inquiry.subject %>
 </p>
 
 <p>
   <strong>Query:</strong>
-  <%= @inquiry.query %>
+  <%= @inquiry.content %>
 </p>
 
-<%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
-<%= link_to 'Back', inquiries_path %>
+<p>
+  <strong>Created By:</strong>
+  <%= @inquiry.user.fname %>
+</p>
+
+<br>
+<br>
+<h1>All replies to inquiry</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Reply From</th>
+    <th>Response</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @inquiry.replies.each do |reply| %>
+    <tr>
+      <td><%= reply.user.fname %></td>
+      <td><%= reply.response %></td>
+      <td><%= link_to 'Edit', edit_reply_path(reply) %></td>
+      <td><%= link_to 'Delete',reply, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<br>
+<h1>Reply to user's inquiry</h1>
+
+<%= form_for @reply do |form| %>
+  <div style="display: none;">
+    <%= form.text_field :user_id, value: current_user.id %>
+  </div>
+  <div style="display: none;">
+    <%= form.text_field :inquiry_id, value: @inquiry.id %>
+  </div>
+  <div class="field">
+    <%= form.label :response ,"Reply to user's query:" %>
+    <%= form.text_field :response %>
+  </div>
+  <div class="actions">
+    <%= form.submit  %>
+  </div>
+<% end %>
+<%= link_to 'Back', house_path(@inquiry.house) %>

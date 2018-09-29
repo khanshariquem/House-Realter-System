@@ -28,7 +28,7 @@ class RepliesController < ApplicationController
 
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
+        format.html { redirect_to inquiry_path(@reply.inquiry), notice: 'Reply was successfully created.' }
         format.json { render :show, status: :created, location: @reply }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RepliesController < ApplicationController
   def update
     respond_to do |format|
       if @reply.update(reply_params)
-        format.html { redirect_to @reply, notice: 'Reply was successfully updated.' }
+        format.html { redirect_to inquiry_path(@reply.inquiry), notice: 'Reply was successfully updated.' }
         format.json { render :show, status: :ok, location: @reply }
       else
         format.html { render :edit }
@@ -54,9 +54,10 @@ class RepliesController < ApplicationController
   # DELETE /replies/1
   # DELETE /replies/1.json
   def destroy
+    @inquiry = @reply.inquiry
     @reply.destroy
     respond_to do |format|
-      format.html { redirect_to replies_url, notice: 'Reply was successfully destroyed.' }
+      format.html { redirect_to inquiry_path(@inquiry), notice: 'Reply was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class RepliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reply_params
-      params.require(:reply).permit(:realtor_id, :inquiry_id, :response)
+      params.require(:reply).permit(:user_id, :inquiry_id, :response)
     end
 end

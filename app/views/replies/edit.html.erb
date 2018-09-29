@@ -1,6 +1,5 @@
-<h1>Editing Reply</h1>
+<h1>Edit Reply</h1>
 
 <%= render 'form', reply: @reply %>
 
-<%= link_to 'Show', @reply %> |
-<%= link_to 'Back', replies_path %>
+<%= link_to 'Back', inquiry_path(@reply.inquiry) %>
