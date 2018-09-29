@@ -1,0 +1,26 @@
+
+<h1>List of Inquiries</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Subject</th>
+    <th>Query</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @inquiries.each do |inquiries| %>
+    <tr>
+      <td><%= inquiries.subject %></td>
+
+      <td><%= inquiries.content%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'Back', home_index_path %>
