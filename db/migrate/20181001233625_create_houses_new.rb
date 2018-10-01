@@ -1,7 +1,8 @@
-class CreateHouses < ActiveRecord::Migration[5.2]
+class CreateHousesNew < ActiveRecord::Migration[5.2]
   def change
     create_table :houses do |t|
       t.belongs_to :company, foreign_key: true
+      t.belongs_to :user, foreign_key: true
       t.string :location
       t.float :size
       t.integer :year
@@ -11,7 +12,6 @@ class CreateHouses < ActiveRecord::Migration[5.2]
       t.boolean :basement
       t.string :owner
       t.string :contact
-
       t.timestamps
     end
   end

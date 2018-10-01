@@ -1,4 +1,4 @@
-class CreateBuyer < ActiveRecord::Migration[5.2]
+class CreateBuyerNew < ActiveRecord::Migration[5.2]
   def change
     create_table :buyers do |t|
       t.belongs_to :house, foreign_key: true
