@@ -1,5 +1,25 @@
-<h1>New Buyer</h1>
-
 <%= render 'form', buyer: @buyer %>
 
-<%= link_to 'Back', buyers_path %>
+<br>
+<br>
+<br>
+
+<h1>My Interest List</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>House</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @buyers.each do |buyer| %>
+    <tr>
+      <td><%= buyer.house_id %></td>
+      <td><%= link_to 'Delete',buyer, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+

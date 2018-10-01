@@ -1,0 +1,32 @@
+<h1>My Inqueries</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Subject</th>
+    <th>Query</th>
+    <th>Created By</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @inquiries.each do |inquiry| %>
+    <tr>
+      <td><%= inquiry.subject %></td>
+      <td><%= inquiry.content %></td>
+      <td><%= inquiry.user.fname %></td>
+      <% if !current_user.is_hunter %>
+        <td><%= link_to 'Show', inquiry_path(inquiry) %></td>
+      <% end %>
+      <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
+      <td><%= link_to 'Delete',inquiry, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<h1>Submit a query</h1>
+<%= render 'form', inquiry: @inquiry %>
+
+

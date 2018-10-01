@@ -9,6 +9,12 @@
       </ul>
     </div>
   <% end %>
+    <div style="display: none;">
+      <%= form.text_field :user_id, value: current_user.id %>
+    </div>
+    <div style="display: none;">
+      <%= form.text_field :house_id, value:   @inquiry.house_id %>
+    </div>
     <div class="field">
       <%= form.label :subject %>
       <%= form.text_field :subject %>
@@ -18,6 +24,6 @@
       <%= form.text_field :content %>
     </div>
     <div class="actions">
-      <%= form.submit  %>
+      <%= form.submit%>
     </div>
 <% end %>

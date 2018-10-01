@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>House Search Results</h1>
+
+<% if @search.search_houses.empty? %>
+  <p>No Houses Found</p>
+<% else %>
+  <table class = "table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Location</th>
+      <th>Size</th>
+      <th>Year</th>
+      <th>Style</th>
+      <th>Price</th>
+      <th>Floors</th>
+      <th>Basement</th>
+      <th>Owner</th>
+      <th>Contact</th>
+      <th>Listed By</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @search.search_houses.each do |h| %>
+        <tr>
+          <td><%= h.company.c_name %></td>
+          <td><%= h.location %></td>
+          <td><%= h.size %></td>
+          <td><%= h.year %></td>
+          <td><%= h.style %></td>
+          <td><%= h.price %></td>
+          <td><%= h.floors %></td>
+          <td><%= h.basement %></td>
+          <td><%= h.owner %></td>
+          <td><%= h.contact %></td>
+          <td><%= h.user.fname %></td>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%end%>
+<br>

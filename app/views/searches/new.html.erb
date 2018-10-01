@@ -1,0 +1,15 @@
+<h2>House Search</h2>
+
+<%= form_for(@search, html: {method: :post}) do |form| %>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.select :location, options_for_select(['Raleigh', 'Cary', 'Morisville', 'Durham', 'Chapel Hill'], 'Raleigh')%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Search" %>
+  </div>
+<% end %>
+
+

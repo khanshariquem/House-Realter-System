@@ -32,7 +32,7 @@
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.select :location, options_for_select(['Raleigh', 'Cary', 'Morisville', 'Durham', 'Chapel Hill'], 'Raleigh')%>
   </div>
 
   <div class="field">
@@ -57,7 +57,7 @@
 
   <div class="field">
     <%= form.label :floors %>
-    <%= form.text_field :floors %>
+    <%= form.select :floors, options_for_select(['One', 'Two', 'Three', 'Four'], 'One')%>
   </div>
 
   <div class="field">

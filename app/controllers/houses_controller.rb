@@ -11,6 +11,7 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @inquiry = Inquiry.new
+    @buyer = Buyer.new
   end
 
   # GET /houses/new
@@ -30,7 +31,7 @@ class HousesController < ApplicationController
 
     respond_to do |format|
       if @house.save
-        format.html {redirect_to @house, notice: 'House was successfully created.'}
+        format.html {redirect_to houses_path, notice: 'House was successfully created.'}
         format.json {render :show, status: :created, location: @house}
       else
         format.html {render :new}

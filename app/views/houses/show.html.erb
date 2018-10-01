@@ -35,58 +35,8 @@
 
   </tbody>
 </table>
-<% if @house.user_id==current_user.id or current_user.is_admin %>
-  <%= link_to 'Edit', edit_house_path(@house) %>
-  <br>
-  <br>
-  <h1>Inqueries</h1>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Subject</th>
-      <th>Query</th>
-      <th>Created By</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @house.inquiries.each do |inquiry| %>
-      <tr>
-        <td><%= inquiry.subject %></td>
-        <td><%= inquiry.content %></td>
-        <td><%= inquiry.user.fname %></td>
-        <td><%= link_to 'Show', inquiry_path(inquiry) %></td>
-        <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
-        <td><%= link_to 'Delete',inquiry, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-<% end %>
 
 <br>
-<br>
-<h1>Submit a new Inquiry</h1>
-
-<%= form_for @inquiry do |form| %>
-  <div style="display: none;">
-    <%= form.text_field :user_id, value: current_user.id %>
-  </div>
-  <div style="display: none;">
-    <%= form.text_field :house_id, value: @house.id %>
-  </div>
-  <div class="field">
-    <%= form.label :subject %>
-    <%= form.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <div class="actions">
-    <%= form.submit  %>
-  </div>
-<% end %>
-<%= link_to 'Back', houses_path %>
+<%= link_to 'Back ||', houses_path %>
+<%= link_to 'Submit/View Queries || ', new_inquiry_path(:id => @house.id) %>
+<%= link_to 'Add To/View Interest List', new_buyer_path(:id => @house.id) %>
