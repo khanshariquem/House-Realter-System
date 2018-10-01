@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Buyers</h1>
+<h1>Potential Buyers</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>House</th>
@@ -14,16 +14,11 @@
   <tbody>
     <% @buyers.each do |buyer| %>
       <tr>
-        <td><%= buyer.house %></td>
-        <td><%= buyer.hunter %></td>
+        <td><%= buyer.house_id %></td>
+        <td><%= buyer.user_id %></td>
         <td><%= link_to 'Show', buyer %></td>
-        <td><%= link_to 'Edit', edit_buyer_path(buyer) %></td>
-        <td><%= link_to 'Destroy', buyer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Buyer', new_buyer_path %>

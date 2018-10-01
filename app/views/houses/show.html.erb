@@ -39,4 +39,9 @@
 <br>
 <%= link_to 'Back ||', houses_path %>
 <%= link_to 'Submit/View Queries || ', new_inquiry_path(:id => @house.id) %>
-<%= link_to 'Add To/View Interest List', new_buyer_path(:id => @house.id) %>
+<% if current_user.is_hunter %>
+  <%= link_to 'Add To/View Interest List', new_buyer_path(:id => @house.id) %>
+<% end %>
+<% if current_user.is_realtor %>
+  <%= link_to 'View Interested People List', buyers_path(:id => @house.id) %>
+<% end %>
