@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    validates_admin_only
+    validates_admin_or_realtor
     set_user
   end
 
@@ -83,6 +83,14 @@ class UsersController < ApplicationController
 
   def validates_admin_only
     if user_signed_in? && !(current_user.is_admin)
+      respond_to do |format|
+        format.html {redirect_to home_index_path}
+      end
+    end
+  end
+
+  def validates_admin_or_realtor
+    if user_signed_in? && (current_user.is_hunter)
       respond_to do |format|
         format.html {redirect_to home_index_path}
       end

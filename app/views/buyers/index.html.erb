@@ -1,12 +1,12 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Potential Buyers</h1>
 
-<table class="table table-striped">
+<table class="table table-striped" >
   <thead>
     <tr>
-      <th>House</th>
-      <th>Hunter</th>
+      <th>House Belongs To</th>
+      <th>House Location</th>
+      <th>Interested User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +14,10 @@
   <tbody>
     <% @buyers.each do |buyer| %>
       <tr>
-        <td><%= buyer.house_id %></td>
-        <td><%= buyer.user_id %></td>
-        <td><%= link_to 'Show', buyer %></td>
+        <td><%= buyer.house.company.c_name %></td>
+        <td><%= buyer.house.location %></td>
+        <td><%= buyer.user.fname %></td>
+        <td><%= link_to 'Display User', user_path(buyer.user_id) %></td>
       </tr>
     <% end %>
   </tbody>

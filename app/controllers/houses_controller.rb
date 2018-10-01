@@ -10,6 +10,9 @@ class HousesController < ApplicationController
   # GET /houses/1
   # GET /houses/1.json
   def show
+    @added = Hash.new
+    @added["added"] = false
+    @added["buyer"] = nil
     @inquiry = Inquiry.new
     @buyer = Buyer.new
   end

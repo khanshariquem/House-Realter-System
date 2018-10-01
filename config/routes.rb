@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get '/users', to: 'users#new'
   match '/users/new', to: 'users#new', via: 'get'
   match '/users', to: 'users#create', via: 'post'
+  match '/interestList', to: 'buyers#showinterestlist', via: 'get' , as:'show_interest_list'
 end

@@ -1,4 +1,5 @@
-<%= form_for @buyer do |form| %>
+
+<%= form_for @buyer ,:html=>{:id => "form_submit"} do |form| %>
   <% if buyer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(buyer.errors.count, "error") %> prohibited this buyer from being saved:</h2>
@@ -19,9 +20,15 @@
       <%= form.text_field :user_id, value: current_user.id %>
     </div>
     <div class="actions">
-      <%= form.submit "Add to interest list"%>
+      <%= form.submit() %>
+      <%#= form.submit "Add to interest list"%>
     </div>
   <% end %>
 
-
 <% end %>
+
+<script>
+    $(document).ready(function(){
+        $("form_submit").submit();
+    });
+</script>

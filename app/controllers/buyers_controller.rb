@@ -7,6 +7,10 @@ class BuyersController < ApplicationController
     @buyers = Buyer.where(["house_id = ?", params[:id]])
   end
 
+  def showinterestlist
+    @user_buyers = Buyer.where(["user_id = ?", current_user])
+  end
+
   # GET /buyers/1
   # GET /buyers/1.json
   def show
@@ -30,7 +34,7 @@ class BuyersController < ApplicationController
     @buyer = Buyer.new(buyer_params)
     respond_to do |format|
       if @buyer.save
-        format.html { redirect_to new_buyer_path, notice: 'Buyer was successfully created.' }
+        format.html { redirect_to house_path(@buyer.house), notice: 'House was added to interest List.' }
         format.json { render :show, status: :created, location: @buyer }
       else
         format.html { render :new }
@@ -42,23 +46,24 @@ class BuyersController < ApplicationController
   # PATCH/PUT /buyers/1
   # PATCH/PUT /buyers/1.json
   def update
-    respond_to do |format|
-      if @buyer.update(buyer_params)
-        format.html { redirect_to @buyer, notice: 'Buyer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @buyer }
-      else
-        format.html { render :edit }
-        format.json { render json: @buyer.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @buyer.update(buyer_params)
+    #     format.html { redirect_to house_path(@buyer.house), notice: 'Buyer was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @buyer }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @buyer.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /buyers/1
   # DELETE /buyers/1.json
   def destroy
+    @house = @buyer.house
     @buyer.destroy
     respond_to do |format|
-      format.html { redirect_to buyers_url, notice: 'Buyer was successfully destroyed.' }
+      format.html { redirect_to house_path(@house), notice: 'House was removed from interest List.' }
       format.json { head :no_content }
     end
   end

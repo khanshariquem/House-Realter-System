@@ -1,0 +1,26 @@
+<h1>My Interest List</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Company</th>
+    <th>House Location</th>
+    <th>House Owner</th>
+    <th>House Floors</th>
+    <th>House Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @user_buyers.each do |fav| %>
+    <tr>
+      <td><%= fav.house.company.c_name %></td>
+      <td><%= fav.house.location %></td>
+      <td><%= fav.house.owner %></td>
+      <td><%= fav.house.floors %></td>
+      <td><%= fav.house.price %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back', home_index_path %>

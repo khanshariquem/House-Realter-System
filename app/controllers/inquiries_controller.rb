@@ -17,8 +17,9 @@ class InquiriesController < ApplicationController
   def new
     @inquiry = Inquiry.new
     @inquiry.house_id = params[:id]
-    @inquiries = Inquiry.where(["user_id = ?", current_user.id])
-    @inquiries = @inquiries.where(["house_id = ?", params[:id]])
+    # @inquiries = Inquiry.where(["user_id = ?", current_user.id])
+    # @inquiries = @inquiries.where(["house_id = ?", params[:id]])
+    @inquiries = Inquiry.where(["house_id = ?", params[:id]])
   end
 
   # GET /inquiries/1/edit
