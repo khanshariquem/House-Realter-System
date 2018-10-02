@@ -1,5 +1,4 @@
-This document explains all the functionalities and workflow implemented in the particular version of the web application. 
-creation date: 10/01/2018
+## This document explains all the functionalities and workflow implemented in the particular version of the web application. 
 
 Admin Credentials:
 Email:admin@hns.com
@@ -30,7 +29,7 @@ Web Application can be viewed in 3 roles:
 9.	 Inside Add New Companies, admin can add new companies and their details.
 10.	 Admin can logout using Logout option given in top-right corner.
 
-**Realtor**
+**Realtor:**
 1.	Realtor can have option for the signup.
 2.	Inside signup, they can select the company to be registered with from an existing list or they can add new company.
 3.	They can also select the option whether they want the access role as a hunter or not at the time of signup.
