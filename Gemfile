@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.4'
+ruby '2.5.1'
 
 gem 'omniauth'
 gem 'devise'
@@ -15,7 +15,7 @@ end
 group :production do
   gem 'pg'
 end
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

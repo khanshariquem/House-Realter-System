@@ -236,7 +236,6 @@ DEPENDENCIES
   pg
   puma (~> 3.11)
   rails (~> 5.2.1)
-  rails_12factor
   sass-rails (~> 5.0)
   selenium-webdriver
   sqlite3
@@ -246,7 +245,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.4.4
+   ruby 2.5.1
 
 BUNDLED WITH
    1.16.5
