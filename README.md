@@ -1,4 +1,4 @@
-## This document explains all the functionalities and workflow implemented in the particular version of the web application. 
+## This document explains all the functionalities with the workflow. 
 
 Admin Credentials:
 Email:admin@hns.com
