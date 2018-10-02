@@ -3,7 +3,9 @@ creation date: 10/01/2018
 
 Admin Credentials:
 Email:admin@hns.com
-Password:admin5**
+Password:admin5
+
+Application URL : https://sheltered-anchorage-86797.herokuapp.com
  
 Web Application can be viewed in 3 roles:
 1. Admin
