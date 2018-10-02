@@ -1,5 +1,9 @@
 This document explains all the functionalities and workflow implemented in the particular version of the web application. 
 creation date: 10/01/2018
+
+Firsst while accessing the web:
+LOGIN via: "admin@hns.com"
+Password:admin5
  
 Web Application can be viewed in 3 roles:
 1. Admin
