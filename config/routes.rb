@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :searches, only: [:new, :create, :show]
   resources :users
-  devise_for :users,:path => 'u', :controllers => {:registrations => "registrations"}
+  devise_for :users,:path => 'user', :controllers => {:registrations => "registrations"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/users', to: 'users#new'
   match '/users/new', to: 'users#new', via: 'get'
