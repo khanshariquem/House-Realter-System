@@ -7,7 +7,7 @@ Web Application can be viewed in 3 roles:
 3. Hunter
 
 
-*Admin:
+**Admin:**
 1.	Web Application has already one preconfigured admin.
 2.	Admin can login via email and password from the signup page.
 3.	After logging in, admin is viewed:
@@ -24,7 +24,7 @@ Web Application can be viewed in 3 roles:
 9.	 Inside Add New Companies, admin can add new companies and their details.
 10.	 Admin can logout using Logout option given in top-right corner.
 
-*Realtor:
+**Realtor**
 1.	Realtor can have option for the signup.
 2.	Inside signup, they can select the company to be registered with from an existing list or they can add new company.
 3.	They can also select the option whether they want the access role as a hunter or not at the time of signup.
@@ -38,7 +38,7 @@ Web Application can be viewed in 3 roles:
 11.	Later, at the top-right corner of window, realtor can find “Edit profile” tab where they can edit their profile except the company they have already chosen to be registered with.
 12.	They can also select to switch role from realtor to hunter.
 
-*Hunter:
+**Hunter:**
 1.	Hunter can have option for the signup.
 2.	Inside signup, they can choose the role they want to have.
 3.	After login, they are viewed list of 3 pages: List all companies, List all houses & search for a house
