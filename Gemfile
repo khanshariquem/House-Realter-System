@@ -3,14 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
 
-gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
+
+gem 'carrierwave', '~> 1.0'
 group :development, :test do
   gem 'sqlite3'
 end
+gem 'mini_magick'
 
 group :production do
   gem 'pg'

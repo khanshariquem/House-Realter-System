@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_000639) do
+ActiveRecord::Schema.define(version: 2018_10_05_191410) do
 
   create_table "buyers", force: :cascade do |t|
     t.integer "house_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_000639) do
 
   create_table "houses", force: :cascade do |t|
     t.integer "company_id"
+    t.integer "user_id"
     t.string "location"
     t.float "size"
     t.integer "year"
@@ -46,26 +47,30 @@ ActiveRecord::Schema.define(version: 2018_10_01_000639) do
     t.string "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.string "image"
     t.index ["company_id"], name: "index_houses_on_company_id"
+    t.index ["user_id"], name: "index_houses_on_user_id"
   end
 
   create_table "inquiries", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.integer "house_id"
     t.string "subject"
     t.string "content"
-    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["house_id"], name: "index_inquiries_on_house_id"
+    t.index ["user_id"], name: "index_inquiries_on_user_id"
   end
 
   create_table "replies", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "inquiry_id"
     t.string "response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.index ["inquiry_id"], name: "index_replies_on_inquiry_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -92,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_10_01_000639) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "provider"
+    t.string "uid"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

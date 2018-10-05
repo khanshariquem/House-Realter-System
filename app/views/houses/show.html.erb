@@ -1,64 +1,75 @@
 
 <br>
 <h1>House Details</h1>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>Company Name</th>
-    <th>Location</th>
-    <th>Size</th>
-    <th>Year</th>
-    <th>Style</th>
-    <th>Price</th>
-    <th>Floors</th>
-    <th>Basement</th>
-    <th>Owner</th>
-    <th>Contact</th>
-    <th>Listed By</th>
-  </tr>
-  </thead>
+<div>
+  <%= image_tag(@house.image.normal.url) if @house.image? %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Location</th>
+      <th>Size</th>
+      <th>Year</th>
+      <th>Style</th>
+      <th>Price</th>
+      <th>Floors</th>
+      <th>Basement</th>
+      <th>Owner</th>
+      <th>Contact</th>
+      <th>Listed By</th>
+    </tr>
+    </thead>
 
-  <tbody>
-  <tr>
-    <td><%= @house.company.c_name %></td>
-    <td><%= @house.location %></td>
-    <td><%= @house.size %></td>
-    <td><%= @house.year %></td>
-    <td><%= @house.style %></td>
-    <td><%= @house.price %></td>
-    <td><%= @house.floors %></td>
-    <td><%= @house.basement %></td>
-    <td><%= @house.owner %></td>
-    <td><%= @house.contact %></td>
-    <td><%= @house.user.fname %></td>
-    <% if current_user.is_hunter %>
-      <% @house.buyers.each do |buyer|  %>
-        <%if buyer.user_id == current_user.id %>
-          <%  @added["added"] = true %>
-          <%  @added["buyer"] = buyer %>
-        <% else %>
-          <% @added["added"] = false %>
+    <tbody>
+    <tr>
+      <td><%= @house.company.c_name %></td>
+      <td><%= @house.location %></td>
+      <td><%= @house.size %></td>
+      <td><%= @house.year %></td>
+      <td><%= @house.style %></td>
+      <td><%= @house.price %></td>
+      <td><%= @house.floors %></td>
+      <td><%= @house.basement %></td>
+      <td><%= @house.owner %></td>
+      <td><%= @house.contact %></td>
+      <td><%= @house.user.fname %></td>
+      <% if current_user.is_hunter %>
+        <% @house.buyers.each do |buyer|  %>
+          <%if buyer.user_id == current_user.id %>
+            <%  @added["added"] = true %>
+            <%  @added["buyer"] = buyer %>
+          <% else %>
+            <% @added["added"] = false %>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= form_for @buyer  do |f| %>
-        <div style="display: none;">
-          <%= f.text_field :house_id, value: @house.id %>
-        </div>
-        <div style="display: none;">
-          <%= f.text_field :user_id, value: current_user.id %>
-        </div>
-        <% if !@added["added"]%>
-          <td><%= f.submit "Add to Interest List" %></td>
-        <% else %>
-          <td><%= link_to 'Remove From Interest List',@added["buyer"], method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <%= form_for @buyer  do |f| %>
+          <div style="display: none;">
+            <%= f.text_field :house_id, value: @house.id %>
+          </div>
+          <div style="display: none;">
+            <%= f.text_field :user_id, value: current_user.id %>
+          </div>
+          <% if !@added["added"]%>
+            <td><%= f.submit "Add to Interest List" %></td>
+          <% else %>
+            <td><%= link_to 'Remove From Interest List',@added["buyer"], method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% end %>
         <% end %>
+
       <% end %>
-
-    <% end %>
-  </tr>
-  </tbody>
-</table>
-
+    </tr>
+    </tbody>
+  </table>
+</div>
+<% if current_user.is_realtor && (current_user.company_id == @house.company_id) %>
+  <%= form_for @house do |f| %>
+    <div>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+    <%= f.submit "Upload House Image" %>
+  <% end %>
+<% end %>
 <br>
 <%= link_to 'Back ||', houses_path %>
 <% if !current_user.is_realtor || (current_user.company_id == @house.company_id) %>
