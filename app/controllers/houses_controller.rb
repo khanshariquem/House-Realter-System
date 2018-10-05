@@ -49,7 +49,7 @@ class HousesController < ApplicationController
     validateUser
     respond_to do |format|
       if @house.update(house_params)
-        format.html {redirect_to @house, notice: 'House was successfully updated.'}
+        format.html {redirect_to  house_url(@house), notice: 'House was successfully updated.'}
         format.json {render :show, status: :ok, location: @house}
       else
         format.html {render :edit}
