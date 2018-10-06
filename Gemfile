@@ -13,6 +13,7 @@ gem 'carrierwave', '~> 1.0'
 group :development, :test do
   gem 'sqlite3'
 end
+gem "validate_url"
 gem 'mini_magick'
 group :production do
   gem 'pg'

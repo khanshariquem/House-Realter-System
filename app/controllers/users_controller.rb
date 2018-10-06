@@ -1,35 +1,30 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :validates_admin_or_realtor , only: [:show]
+  before_action :validates_admin_only , only: [:edit, :update, :destroy , :index , :create ]
   # GET /users
   # GET /users.json
   def index
-    validates_admin_only
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    validates_admin_or_realtor
-    set_user
   end
 
   # GET /users/new
   def new
-
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
-    validates_admin_only
-    set_user
   end
 
   # POST /users
   # POST /users.json
   def create
-    validates_admin_only
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
@@ -45,9 +40,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    validates_admin_only
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update_without_password(user_update_params)
         format.html {redirect_to @user, notice: 'User was successfully updated.'}
         format.json {render :show, status: :ok, location: @user}
       else
@@ -60,8 +54,6 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    validates_admin_only
-    set_user
     @user.destroy
     respond_to do |format|
       format.html {redirect_to users_url, notice: 'User was successfully destroyed.'}
@@ -78,7 +70,10 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:fname, :email, :password, :is_realtor, :is_hunter)
+    params.require(:user).permit(:fname,:contact,:email,:password,:is_realtor,:is_hunter,:contact_mode,:company_id)
+  end
+  def user_update_params
+    params.require(:user).permit(:fname,:contact,:email,:is_hunter,:is_realtor)
   end
 
   def validates_admin_only

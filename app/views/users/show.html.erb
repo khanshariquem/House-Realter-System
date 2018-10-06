@@ -1,29 +1,20 @@
 <h1>User Details</h1>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.fname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @user.contact %>
-</p>
-
-<p>
-  <strong>Realter:</strong>
-  <%= @user.is_realtor %>
-</p>
-
-<p>
-  <strong>House Hunter:</strong>
-  <%= @user.is_hunter %>
-</p>
+<table class="table table-striped" border="2">
+  <tr>
+    <th> Name </th>
+    <th> Email </th>
+    <th> Contact </th>
+    <th> Is Realtor </th>
+    <th> Is House Hunter</th>
+  </tr>
+  <tr>
+    <td><%= @user.fname %></td>
+    <td><%= @user.email %></td>
+    <td><%= @user.contact %></td>
+    <td><%= @user.is_realtor %></td>
+    <td><%= @user.is_hunter %></td>
+  </tr>
+</table>
 <% if (current_user.is_admin ) %>
 <%= link_to 'Edit User', edit_user_path(@user) %> |
 <% end %>

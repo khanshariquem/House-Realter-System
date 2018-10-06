@@ -50,6 +50,7 @@
   <% if current_user.is_hunter %>
     <div class="col-md-6 mb-3" , id="contact_mode">
       <%= f.label :contact_mode, 'Preferred Mode Of Contact' %>
+      <%#= f.select :contact_mode, options_for_select(['Text', 'Email', 'Call'], :selected => :contact_mode)%>
       <%= f.text_field :contact_mode %>
     </div>
   <% end %>
