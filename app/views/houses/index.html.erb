@@ -37,6 +37,7 @@
       <% end %>
       <% if house.user_id == current_user.id or current_user.is_admin %>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
+        <td><%= button_to "delete", house, :method => "delete" %></td>
         <td><%= link_to 'Delete', house, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       <% end %>
     </tr>
