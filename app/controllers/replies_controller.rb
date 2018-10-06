@@ -28,6 +28,8 @@ class RepliesController < ApplicationController
 
     respond_to do |format|
       if @reply.save
+        # send email
+        InquiryMailer.inquiry_answered(@reply.inquiry.user).deliver
         format.html { redirect_to inquiry_path(@reply.inquiry), notice: 'Reply was successfully created.' }
         format.json { render :show, status: :created, location: @reply }
       else

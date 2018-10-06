@@ -15,7 +15,7 @@
 
 <br>
 <br>
-<h1>All replies to inquiry</h1>
+<h3>All replies to this inquiry:</h3>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -38,8 +38,8 @@
 </table>
 <br>
 <br>
-<h1>Reply to user's inquiry</h1>
-
+<h3>Reply to user's inquiry:</h3>
+<br>
 <%= form_for @reply do |form| %>
   <div style="display: none;">
     <%= form.text_field :user_id, value: current_user.id %>
@@ -55,4 +55,5 @@
     <%= form.submit 'Send Reply' %>
   </div>
 <% end %>
+<br>
 <%= link_to 'Back', house_path(@inquiry.house) %>
