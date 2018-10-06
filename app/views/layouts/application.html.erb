@@ -12,7 +12,9 @@
 
 <body>
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <%= button_to "Logout ??", destroy_user_session_path, :method => "delete", :class => 'navbar-link' %>
+  <% if user_signed_in? %>
+    <%= button_to "Logout ??", destroy_user_session_path, :method => "delete", :class => 'navbar-link' %>
+  <% else %>
   <%= link_to '|*| House Management System |*|', home_index_path, :class => 'navbar-brand col-sm-3 col-md-2 mr-0' %>
   <p class="navbar-text pull-right">
     <% if user_signed_in? %>
