@@ -31,7 +31,7 @@
       <td><%= reply.user.fname %></td>
       <td><%= reply.response %></td>
       <td><%= link_to 'Edit', edit_reply_path(reply) %></td>
-      <td><%= link_to 'Delete',reply, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <td><%= button_to "delete", reply, :method => "delete" %></td>
     </tr>
   <% end %>
   </tbody>

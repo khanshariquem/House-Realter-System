@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Companies</h1>
-
-
+<h3>Companies</h3>
 
 <table class="table table-striped">
   <thead>
   <tr>
-    <!--      <th>Company Id:</th>-->
     <th>Company Name</th>
     <th>Website</th>
     <th>Address</th>
@@ -15,7 +12,6 @@
     <th>Year</th>
     <th>Revenue</th>
     <th>Synopsis</th>
-
   </tr>
   </thead>
 
@@ -30,9 +26,9 @@
       <td><%= company.revenue %></td>
       <td><%= company.synopsis %></td>
       <td><%= link_to 'Show', company %></td>
-      <% if current_user.is_admin || current_user.company_id == company.id%>
+      <% if current_user.is_admin || current_user.company_id == company.id %>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to "delete", company, :method => "delete" %></td>
       <% end %>
 
     </tr>
