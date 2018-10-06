@@ -6,6 +6,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,:trackable , :omniauthable, omniauth_providers: %i[facebook]
   validates_presence_of :email,:fname
   # enum contact_mode: [:Email, :Text, :Call]
+  after_create :send_mail
+  def send_mail
+    # send email
+    UserMailer.signup_confirmation(self).deliver
+  end
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
