@@ -178,7 +178,7 @@
         <counts>
           <entry key="Gemfile" value="1" />
           <entry key="cell" value="47" />
-          <entry key="erb" value="2404" />
+          <entry key="erb" value="2406" />
           <entry key="js" value="2" />
           <entry key="rb" value="1510" />
           <entry key="sql" value="233" />
@@ -190,7 +190,7 @@
         <counts>
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="RHTML" value="2404" />
+          <entry key="RHTML" value="2406" />
           <entry key="Ruby" value="1511" />
           <entry key="SQL" value="144" />
           <entry key="Scratch" value="136" />
@@ -318,8 +318,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+            <state relative-caret-position="63">
+              <caret line="20" column="80" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -718,7 +718,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117019000" />
+    <option name="totallyTimeSpent" value="117194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -1069,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        <state relative-caret-position="63">
+          <caret line="20" column="80" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
         </state>
       </provider>
     </entry>
