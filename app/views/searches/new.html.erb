@@ -1,15 +1,32 @@
 <h2>House Search</h2>
 
-<%= form_for(@search, html: {method: :post}) do |form| %>
+<%= form_for @search, html: {class: "pure-form"} do |form| %>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.select :location, options_for_select(['Raleigh', 'Cary', 'Morisville', 'Durham', 'Chapel Hill'], 'Raleigh')%>
+    <%= form.select :location, options_for_select(@locations), :include_blank => true %>
   </div>
-
+  <div class="field">
+    <%= form.label :min_cost, 'Price range min value (in dollars - whole numbers)' %>
+    <%= form.number_field :min_cost %>
+  </div>
+  <div class="field">
+    <%= form.label :max_cost, 'Price range max value (in dollars - whole numbers)' %>
+    <%= form.number_field :max_cost %>
+  </div>
+  <div class="field">
+    <%= form.label :min_size, 'Size range min value (in sq.ft - whole numbers)' %>
+    <%= form.number_field :min_size %>
+  </div>
+  <div class="field">
+    <%= form.label :max_size, 'Size range max value (in sq.ft - whole numbers)' %>
+    <%= form.number_field :max_size %>
+  </div>
   <div class="actions">
     <%= form.submit "Search" %>
   </div>
 <% end %>
+<br>
+<%= link_to 'Back', home_index_path %>
 
 
