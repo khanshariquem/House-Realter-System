@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
-  before_action :authenticate_user!, :set_house, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_house, only: [:show, :edit, :update, :destroy]
+  before_action :validateUser, only: [ :edit, :update, :destroy]
   # GET /houses
   # GET /houses.json
   def index
@@ -24,17 +24,20 @@ class HousesController < ApplicationController
 
   # GET /houses/1/edit
   def edit
-    validateUser
   end
 
   # POST /houses
   # POST /houses.json
   def create
     @house = House.new(house_params)
-
+    if @house.company_id == nil
+      flash[:error] = "Please assign a company to your profile."
+      render :new
+      return
+    end
     respond_to do |format|
       if @house.save
-        format.html {redirect_to houses_path, notice: 'House was successfully created.'}
+        format.html {redirect_to @house, notice: 'House was successfully created.'}
         format.json {render :show, status: :created, location: @house}
       else
         format.html {render :new}
@@ -46,7 +49,6 @@ class HousesController < ApplicationController
   # PATCH/PUT /houses/1
   # PATCH/PUT /houses/1.json
   def update
-    validateUser
     respond_to do |format|
       if @house.update(house_params)
         format.html {redirect_to @house, notice: 'House was successfully updated.'}
@@ -61,7 +63,6 @@ class HousesController < ApplicationController
   # DELETE /houses/1
   # DELETE /houses/1.json
   def destroy
-    validateUser
     @house.destroy
     respond_to do |format|
       format.html {redirect_to houses_url, notice: 'House was successfully destroyed.'}
