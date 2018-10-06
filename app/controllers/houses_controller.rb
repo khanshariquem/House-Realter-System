@@ -49,7 +49,7 @@ class HousesController < ApplicationController
     validateUser
     respond_to do |format|
       if @house.update(house_params)
-        format.html {redirect_to houses_url, notice: 'House was successfully updated.'}
+        format.html {redirect_to @house, notice: 'House was successfully updated.'}
         format.json {render :show, status: :ok, location: @house}
       else
         format.html {render :edit}
@@ -85,6 +85,7 @@ class HousesController < ApplicationController
     if user_signed_in? && !(current_user.is_admin || current_user.id == @house.user_id)
       respond_to do |format|
         format.html {redirect_to home_index_path}
+        return
       end
     end
   end
