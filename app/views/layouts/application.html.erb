@@ -33,9 +33,6 @@
   <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
-  <% flash.each do |key, value| %>
-    <p class="alert alert-danger"><%= value %></p>
-  <% end %>
   <%= yield %>
 </div>
 </body>
