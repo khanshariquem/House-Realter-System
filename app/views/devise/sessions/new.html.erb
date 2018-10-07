@@ -1,7 +1,7 @@
 
 <div align="center">
     <%= image_tag("estate.jpg", size: "72")%>
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h3 class="h3 mb-3 font-weight-normal">Please sign in</h3>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name) , :html => {:class => "form-signin"}) do |f| %>
       <div class="form-group">
         <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email address" ,class:"form-control"  %>
