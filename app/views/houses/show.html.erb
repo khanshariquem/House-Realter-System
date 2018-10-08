@@ -72,13 +72,12 @@
 <% end %>
 <br>
 <%= link_to 'Back ||', houses_path %>
-<% if current_user.is_hunter %>
+<% if current_user.is_hunter && session[:as_hunter] %>
   <%= link_to 'Submit/View My Queries || ', new_inquiry_path(:id => @house.id) %>
-  <%= link_to 'View My Interest List  ', show_interest_list_path %>
 <% end %>
-<% if current_user.is_admin || ( current_user.is_realtor && (current_user.company_id == @house.company_id)) %>
+<% if current_user.is_admin || ( current_user.is_realtor && (current_user.company_id == @house.company_id) && session[:as_realtor]) %>
   <%= link_to 'View Queries || ', new_inquiry_path(:id => @house.id) %>
 <% end %>
-<% if current_user.is_realtor && (current_user.company_id == @house.company_id) %>
+<% if current_user.is_realtor && (current_user.company_id == @house.company_id) && session[:as_realtor] %>
   <%= link_to 'View Potential Buyers', buyers_path(:id => @house.id) %>
 <% end %>

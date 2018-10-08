@@ -4,6 +4,15 @@
     <td>
       <div class="row" style={position:absolute}>
         <ul class="nav flex-column">
+          <% if session[:dual_role] %>
+          <li class="nav-item">
+            <a class="text-white bg-dark" href="<%= hunter_index_path %>"> View as Hunter
+            </a>
+          </li>
+          <li>
+            <br>
+          </li>
+          <% end %>
           <li class="nav-item">
             <a class="nav-link active" href="<%= companies_path %>">
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
@@ -22,7 +31,7 @@
               List All Houses
             </a>
           </li>
-          <% if current_user.is_hunter %>
+          <% if current_user.is_hunter && !session[:dual_role] %>
             <li class="nav-item">
               <a class="nav-link active" href="<%= show_interest_list_path %>">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">

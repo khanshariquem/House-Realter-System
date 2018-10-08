@@ -27,6 +27,14 @@
   </div>
 <% end %>
 <br>
-<%= link_to 'Back', home_index_path %>
+<% if session[:dual_role] %>
+  <% if session[:as_realtor] %>
+    <%= link_to 'Back', home_index_path %>
+  <% else %>
+    <%= link_to 'Back', hunter_index_path %>
+  <% end %>
+<% else %>
+  <%= link_to 'Back', home_index_path %>
+<% end %>
 
 
