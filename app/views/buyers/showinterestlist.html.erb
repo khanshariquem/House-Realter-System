@@ -18,6 +18,7 @@
       <td><%= fav.house.owner %></td>
       <td><%= fav.house.floors %></td>
       <td><%= fav.house.price %></td>
+      <td><%= button_to "Remove From Interest List", fav, :method => "delete" %></td>
     </tr>
   <% end %>
   </tbody>
