@@ -21,8 +21,6 @@
   <tr>
     <th>Reply From</th>
     <th>Response</th>
-    <th>Edit</th>
-    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -30,30 +28,34 @@
     <tr>
       <td><%= reply.user.fname %></td>
       <td><%= reply.response %></td>
+      <% if current_user.is_realtor && (current_user.company_id == reply.inquiry.house.company_id) %>
       <td><%= link_to 'Edit', edit_reply_path(reply) %></td>
       <td><%= button_to "delete", reply, :method => "delete" %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
 </table>
-<br>
-<br>
-<h3>Reply to user's inquiry:</h3>
-<br>
-<%= form_for @reply do |form| %>
-  <div style="display: none;">
-    <%= form.text_field :user_id, value: current_user.id %>
-  </div>
-  <div style="display: none;">
-    <%= form.text_field :inquiry_id, value: @inquiry.id %>
-  </div>
-  <div class="field">
-    <%= form.label :response ,"Reply to user's query:" %>
-    <%= form.text_field :response %>
-  </div>
-  <div class="actions">
-    <%= form.submit 'Send Reply' %>
-  </div>
+<% if current_user.is_realtor && (current_user.company_id == @inquiry.house.company_id) %>
+  <br>
+  <br>
+  <h3>Reply to user's inquiry:</h3>
+  <br>
+  <%= form_for @reply do |form| %>
+    <div style="display: none;">
+      <%= form.text_field :user_id, value: current_user.id %>
+    </div>
+    <div style="display: none;">
+      <%= form.text_field :inquiry_id, value: @inquiry.id %>
+    </div>
+    <div class="field">
+      <%= form.label :response ,"Reply to user's query:" %>
+      <%= form.text_field :response %>
+    </div>
+    <div class="actions">
+      <%= form.submit 'Send Reply' %>
+    </div>
+  <% end %>
 <% end %>
 <br>
 <%= link_to 'Back', house_path(@inquiry.house) %>

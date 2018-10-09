@@ -21,9 +21,7 @@
       <td><%= inquiry.subject %></td>
       <td><%= inquiry.content %></td>
       <td><%= inquiry.user.fname %></td>
-      <% if current_user.is_realtor %>
-        <td><%= link_to 'Show', inquiry_path(inquiry) %></td>
-      <% end %>
+      <td><%= link_to 'Show', inquiry_path(inquiry) %></td>
       <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
       <td><%= button_to "Delete", inquiry, :method => "delete" %></td>
     </tr>
