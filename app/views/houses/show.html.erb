@@ -71,13 +71,13 @@
   <% end %>
 <% end %>
 <br>
-<%= link_to 'Back ||', houses_path %>
+<%= link_to 'Back ', houses_path , :class=>"active btn btn-dark" %>
 <% if current_user.is_hunter && session[:as_hunter] %>
-  <%= link_to 'Submit/View My Queries || ', new_inquiry_path(:id => @house.id) %>
+  <%= link_to 'Submit/View My Queries', new_inquiry_path(:id => @house.id), :class=>"active btn btn-primary"  %>
 <% end %>
 <% if current_user.is_admin || ( current_user.is_realtor && (current_user.company_id == @house.company_id) && session[:as_realtor]) %>
-  <%= link_to 'View Queries || ', new_inquiry_path(:id => @house.id) %>
+  <%= link_to 'View Queries', new_inquiry_path(:id => @house.id), :class=>"active btn btn-primary"  %>
 <% end %>
 <% if current_user.is_realtor && (current_user.company_id == @house.company_id) && session[:as_realtor] %>
-  <%= link_to 'View Potential Buyers', buyers_path(:id => @house.id) %>
+  <%= link_to 'View Potential Buyers', buyers_path(:id => @house.id), :class=>"active btn btn-primary"  %>
 <% end %>

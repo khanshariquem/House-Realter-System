@@ -25,10 +25,10 @@
       <td><%= company.year %></td>
       <td><%= company.revenue %></td>
       <td><%= company.synopsis %></td>
-      <td><%= link_to 'Show', company %></td>
+      <td><%= link_to 'Show', company, :class=>"active btn btn-success"  %></td>
       <% if current_user.is_admin || current_user.company_id == company.id %>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= button_to "delete", company, :method => "delete" %></td>
+        <td><%= link_to 'Edit', edit_company_path(company), :class=>"active btn btn-primary"  %></td>
+        <td><%= button_to "delete", company, :method => "delete", :class=>"active btn btn-danger" %></td>
       <% end %>
 
     </tr>
@@ -38,15 +38,15 @@
 
 <br>
 <% if current_user.is_admin %>
-  <%= link_to 'New Company', new_company_path %> |
+  <%= link_to 'New Company', new_company_path, :class=>"active btn btn-dark"  %> |
 <% end %>
 
 <% if session[:dual_role] %>
   <% if session[:as_realtor] %>
-    <%= link_to 'Back', home_index_path %>
+    <%= link_to 'Back', home_index_path, :class=>"active btn btn-dark"  %>
   <% else %>
-    <%= link_to 'Back', hunter_index_path %>
+    <%= link_to 'Back', hunter_index_path, :class=>"active btn btn-dark"  %>
   <% end %>
 <% else %>
-  <%= link_to 'Back', home_index_path %>
+  <%= link_to 'Back', home_index_path, :class=>"active    btn btn-dark"  %>
 <% end %>

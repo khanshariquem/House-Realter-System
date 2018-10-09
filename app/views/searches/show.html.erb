@@ -44,10 +44,10 @@
 <br>
 <% if session[:dual_role] %>
   <% if session[:as_realtor] %>
-    <%= link_to 'Back', home_index_path %>
+    <%= link_to 'Back', home_index_path, :class=>"active btn btn-dark"  %>
   <% else %>
-    <%= link_to 'Back', hunter_index_path %>
+    <%= link_to 'Back', hunter_index_path, :class=>"active btn btn-dark"  %>
   <% end %>
 <% else %>
-  <%= link_to 'Back', home_index_path %>
+  <%= link_to 'Back', home_index_path, :class=>"active btn btn-dark"  %>
 <% end %>

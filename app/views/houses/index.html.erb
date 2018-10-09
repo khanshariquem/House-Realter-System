@@ -33,11 +33,11 @@
       <td><%= house.contact %></td>
       <td><%= house.user.fname %></td>
       <% if current_user.is_admin || (current_user.is_hunter && session[:as_hunter]) || (house.user_id == current_user.id && current_user.is_realtor && session[:as_realtor]) %>
-        <td><%= link_to 'Show', house %></td>
+        <td><%= link_to 'Show', house, :class=>"active btn btn-success"  %></td>
       <% end %>
       <% if (house.user_id == current_user.id && current_user.is_realtor && session[:as_realtor]) or current_user.is_admin %>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= button_to "delete", house, :method => "delete" %></td>
+        <td><%= link_to 'Edit', edit_house_path(house), :class=>"active btn btn-primary"  %></td>
+        <td><%= button_to "delete", house, :method => "delete" , :class=>"active btn btn-danger"%></td>
       <% end %>
     </tr>
   <% end %>
@@ -46,16 +46,16 @@
 
 <br>
 <% if current_user.is_admin || current_user.is_realtor %>
-  <%= link_to 'New House ||', new_house_path %>
+  <%= link_to 'New House', new_house_path, :class=>"active btn btn-dark"  %> |
 <% end %>
 
 <% if session[:dual_role] %>
   <% if session[:as_realtor] %>
-    <%= link_to 'Back', home_index_path %>
+    <%= link_to 'Back', home_index_path, :class=>"active btn btn-dark"  %>
   <% else %>
-    <%= link_to 'Back', hunter_index_path %>
+    <%= link_to 'Back', hunter_index_path , :class=>"active btn btn-dark" %>
   <% end %>
 <% else %>
-  <%= link_to 'Back', home_index_path %>
+  <%= link_to 'Back', home_index_path, :class=>"active btn btn-dark"  %>
 <% end %>
 

@@ -1,8 +1,10 @@
 <% flash.each do |key, value| %>
   <p class="alert alert-danger"><%= value %></p>
 <% end %>
+<div style="margin-left: 1%">
 <h3>List a house to be sold</h3>
 
 <%= render 'form', house: @house %>
 
-<%= link_to 'Back', houses_path %>
+<%= link_to 'Back', houses_path , :class=>"active btn btn-dark" %>
+</div>

@@ -22,9 +22,9 @@
         <td><%= user.contact %></td>
         <td><%= user.is_realtor %></td>
         <td><%= user.is_hunter %></td>
-        <td><%= link_to 'Show User Details', user %></td>
-        <td><%= link_to 'Edit User Details', edit_user_path(user) %></td>
-        <td><%= button_to "Delete User", user, :method => "delete" %></td>
+        <td><%= link_to 'Show User Details', user, :class=>"active btn btn-success" %></td>
+        <td><%= link_to 'Edit User Details', edit_user_path(user), :class=>"active btn btn-primary" %></td>
+        <td><%= button_to "Delete User", user, :method => "delete", :class=>"active btn btn-danger" %></td>
       </tr>
     <% end %>
   <% end %>
@@ -33,5 +33,5 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
-<%= link_to 'Back', home_index_path %>
+<%= link_to 'New User', new_user_path, :class=>"active btn btn-dark" %>
+<%= link_to 'Back', home_index_path, :class=>"active btn btn-dark" %>

@@ -54,17 +54,18 @@
       <%= f.text_field :contact_mode %>
     </div>
   <% end %>
+
   <div class="col-md-6 mb-3">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", :class=>"active btn btn-primary"  %>
   </div>
 <% end %>
 
 <% if !current_user.is_admin %>
   <div class="col-md-6 mb-3">Unhappy?
-    <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %>
+    <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, :class=>"active btn btn-danger" %>
   </div>
 <% end %>
 <div class="col-md-6 mb-3">
-  <%= link_to "Back", home_index_path %>
+  <%= link_to "Back", home_index_path , :class=>"active btn btn-dark" %>
 </div>
 
