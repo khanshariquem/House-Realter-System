@@ -41,13 +41,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :year %>
+    <%= form.label :year, 'Year (4-digit)' %>
     <%= form.number_field :year %>
   </div>
 
   <div class="field">
     <%= form.label :style %>
-    <%= form.text_field :style %>
+    <%= form.select :style, options_for_select(['TownHouse', 'Single-Family Home', 'Condominium', 'Co-op', 'Multi-Family Home']), :include_blank => true %>
   </div>
 
   <div class="field">
@@ -71,7 +71,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :contact, 'Owner contact number' %>
+    <%= form.label :contact, 'Owner contact number(US) - without country code' %>
     <%= form.text_field :contact %>
   </div>
 
