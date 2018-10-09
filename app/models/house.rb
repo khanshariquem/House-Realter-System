@@ -1,8 +1,8 @@
 class House < ApplicationRecord
   belongs_to :company
   belongs_to :user
-  has_many :inquiries
-  has_many :buyers
+  has_many :inquiries , dependent: :destroy
+  has_many :buyers , dependent: :destroy
   validates_presence_of :company_id, :location,:price
   mount_uploader :image, ImageUploader
   validates :contact, format: { with: /\A([2-9]\d{2})([2-9]\d{2})(\d{4})\z/,

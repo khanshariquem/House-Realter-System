@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
 
-  before_action :authenticate_user!,:set_company, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:edit, :update, :destroy]
   # GET /companies
   # GET /companies.json
   def index
@@ -15,12 +15,9 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
   end
-
   # GET /companies/1/edit
   def edit
-    validate_user
   end
-
   # POST /companies
   # POST /companies.json
   def create
@@ -44,7 +41,6 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
-    validate_user
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
@@ -59,9 +55,6 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
-    validate_user
-    @company.user.destroy
-    @company.houses.destroy
     @company.destroy
     respond_to do |format|
       format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
