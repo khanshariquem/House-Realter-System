@@ -9,7 +9,9 @@ Admin Credentials:
 Email:admin@hns.com
 Password:admin5
 
-A user can signup on the portal using a valid email or his/her facebook account. User needs to select the role while signing in or can add/change the role later by editing the profile. If the user uses facebook account to signup , user will b assigned a hunter role by default which can be change later by editing the profile details.
+A user can signup on the portal using a valid email or his/her facebook account. User needs to select the role while signing in or can add/change the role later by editing the profile. If the user uses facebook account to signup , user will b assigned a hunter role by default which can be change later by editing the profile details. 
+
+**A valid email is required to get the benfits of the mailing features implemented in the application.** 
 
 Web Application can be viewed in 3 roles:
 1. Admin
@@ -18,21 +20,22 @@ Web Application can be viewed in 3 roles:
 
 
 **Admin:**
-1.	Web Application has already one preconfigured admin.
+1.	Web Application is preconfigured with an admin account. The admin credentials are provided above.
 2.	Admin can login via email and password from the signin page.
 3.	After logging in, admin can perform the following operations:
+	
 	**List All Companies** - All the companies available will be displayed with the relevant information. The Admin can view / modify / delete the company.
-	**List All Houses** - All the houses listed on the portal will be displayed with the relevant details. The Admin can view / modify / delete the listed house.
+	
+	**List All Houses** - All the houses listed on the portal will be displayed with the relevant details. The Admin can view / modify / delete the listed house. When admin views the details of a house, he/she can also view/delete the inqueries associated with the house. Admin can also upload an image of the house.
+	
 	**List All Users**- All the users registered on the portal will be displayed.The Admin can view / modify / delete the user.
+	
 	**Create New User** - Admin can create a new user in the portal and assign roles.
+	
 	**Add New Company** - Admin can create a new Company.
-4.	Admin can also edit his profile from the tab shown in right-top of window. He will not be able to delete the profile.
-5.	Inside List all companies, admin can view/ edit /delete information of companies.
-6.	Inside List all Houses, admin can create/view/edit/delete the house information. When admin views the details of a house, Admin can also view/delete the queries associated with the house.Admin can also upload an image of the house.
-7.	 Inside List all Users, admin can view all users and also edit their information.
-8.	 Inside create new users, admin can create the user profile and assign the roles: Realtor or hunter.
-9.	 Inside Add New Companies, admin can add new companies and their details.
-10.	 Admin can logout using Logout option given in top-right corner.
+	
+4.	Admin can also edit his profile but will not be able to delete the account.
+5.	Admin can logout using Logout option given in top-right corner.
 
 **Realtor:**
 1.	Realtor can have option for the signup. He can sign up using a name, email and password.
