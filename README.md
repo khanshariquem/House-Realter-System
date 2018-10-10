@@ -37,9 +37,9 @@ Web Application can be viewed in 3 roles:
 10.	 Admin can logout using Logout option given in top-right corner.
 
 **Realtor:**
-1.	Realtor can have option for the signup. He can signup using a name , email and password.
+1.	Realtor can have option for the signup. He can sign up using a name, email and password.
 2.	They can also select the option whether they want the access role as a hunter or not at the time of signup.
-3.	After signing up , the realtor can associate himself with a company by editing the profile information. He can choose any existing company in the system or create a new company in the edit profile page.
+3.	After signing up, the realtor can associate himself with a company by editing the profile information. He can choose any existing company in the system or create a new company in the edit profile page.
 4.	After login, they are displayed with 2 links on left side of window: List all companies & List all houses.
 5.	Inside “List All Houses”, they can view all houses registered with his companies and also houses from other companies. 
 6.	He can add/delete/edit information of houses associated to him only.
@@ -47,10 +47,11 @@ Web Application can be viewed in 3 roles:
 8.	They also can reply to specific inquiries to the hunters.
 9.	He cannot alter details of any other houses.
 10.	Inside “List all Companies”, Realtor can view all companies registered. He can only edit the information of company, he is associated with.
-12.	They can also select to switch role from realtor to hunter from the edt profile page.
-13.     They can upload images of the houses they uploaded.
-14.     They can now check the potential buyers list.
-15.     They can delete their profile anytime they want.
+11.	They can also select to switch role from realtor to hunter from the edit profile page.
+12.	They can upload images of the houses they uploaded.
+13.	They can now check the potential buyers list.
+14.	They can delete their profile anytime they want.
+
 
 **Hunter:**
 1.	Hunter has option for the signup.
