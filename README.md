@@ -59,6 +59,8 @@ Web Application can be viewed in 3 roles:
 8.	Hunter can edit profile using right-top corner’s “edit profile”.
 9. 	Hunter can display his interest list from homepage with all teh relevat information about the house.
 10.	They can also select to switch role from Hunter to Realtor from the edt profile page.
+11. 	Now, a hunter can add houses to his interest list and see their photos too.
+12. 	They can deactivate their profile whenever they want.
 
 **Test Modules:**
 1. All model-tests are implmented which check the basic validations are working properly or not.
