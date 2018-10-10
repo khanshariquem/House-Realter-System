@@ -21,11 +21,11 @@ Web Application can be viewed in 3 roles:
 1.	Web Application has already one preconfigured admin.
 2.	Admin can login via email and password from the signin page.
 3.	After logging in, admin can perform the following operations:
-	List All Companies - All the companies available will be displayed with the relevant information. The Admin can view / modify / delte the company.
-	List All Houses - All the houses listed on the portal will be displayed with the relevant details. The Admin can view / modify / delte the listed house.
-	List All Users 	- All the users registered on the portal will be displyed.The Admin can view / modify / delte the user.
-	Create New User - Admin can create a new user in the portal and assign roles.
-	Add New Companies - Admin can create a new Company.
+	**List All Companies** - All the companies available will be displayed with the relevant information. The Admin can view / modify / delte the company.
+	**List All Houses** - All the houses listed on the portal will be displayed with the relevant details. The Admin can view / modify / delte the listed house.
+	**List All Users**- All the users registered on the portal will be displyed.The Admin can view / modify / delte the user.
+	**Create New User** - Admin can create a new user in the portal and assign roles.
+	**Add New Company** - Admin can create a new Company.
 4.	Admin can also edit his profile from the tab shown in right-top of window. He will not be able to delete the profile.
 5.	Inside List all companies, admin can view/ edit /delete information of companies.
 6.	Inside List all Houses, admin can list all houses and also edit the information. He can add the houses too. Admin can view all the queries associated with the house and the replies to the query. Admin can also upload an image of the house.
