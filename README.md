@@ -8,6 +8,10 @@ Admin Credentials:
 Email:admin@hns.com
 Password:admin5
 
+**Login with Facebook:** Now you can login with your Facebook account on out portal.
+
+**Forgot Password?:** It's easy to get a link to set new password. You will receive an email for this link on your registered mail id.
+
 Web Application can be viewed in 3 roles:
 1. Admin
 2. Realtor
@@ -25,7 +29,7 @@ Web Application can be viewed in 3 roles:
 	Add New Companies 
 4.	Admin can also edit his profile from the tab shown in right-top of window. He cannot delete the profile.
 5.	Inside List all companies, admin can view/ edit /delete information of companies.
-6.	Inside List all Houses, admin can list all houses and also edit the information. He can    add the houses too. Admin can view all the queries associated with the house and   also, reply to those queries or can check who has replied to that specific query.
+6.	Inside List all Houses, admin can list all houses and also edit the information. He can    add the houses too. Admin can view all the queries associated with the house and   also, reply to those queries or can check who has replied to that specific query. Admin can also upload the images of the house.
 7.	 Inside List all Users, admin can view all users and also edit their information.
 8.	 Inside create new users, admin can create the user profile: Realtor or hunter.
 9.	 Inside Add New Companies, admin can add new companies and their details.
@@ -45,7 +49,7 @@ Web Application can be viewed in 3 roles:
 12.	They can also select to switch role from realtor to hunter from the edt profile page.
 
 **Hunter:**
-1.	Hunter have option for the signup.
+1.	Hunter has option for the signup.
 2.	Inside signup, they can choose the role they want to have.
 3.	After login, they are viewed list of 3 pages: List all companies, List all houses , Search for a house and list all the interest list for the user.
 4.	Inside “List All Houses”, they can view all houses and their information.
@@ -55,6 +59,12 @@ Web Application can be viewed in 3 roles:
 8.	Hunter can edit profile using right-top corner’s “edit profile”.
 9. 	Hunter can display his interest list from homepage with all teh relevat information about the house.
 10.	They can also select to switch role from Hunter to Realtor from the edt profile page.
+
+**Test Modules:**
+1. All model-tests are implmented which check the basic validations are working properly or not.
+2. Major of the controller-tests are implmented which verify and test the function when any of the CRUD operations occur.
+3. fixtures are implmented too.
+
 
 
 
