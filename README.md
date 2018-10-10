@@ -69,12 +69,12 @@ Web Application can be viewed in 3 roles:
 12.	They can deactivate their profile whenever they want.
 
 
-**Test Modules:**
-1. All model-tests are implmented which check the basic validations are working properly or not.
-2. Major of the controller-tests are implmented which verify and test the function when any of the CRUD operations occur.
-3. fixtures are implmented too.
+** Some important points: **
 
-
-
-
-
+1. All model tests are implmented.
+2. Tests are covered for all the major controllers of our application.
+3. Additional features like sending emails(during signup and when a query is answered) and login with facebook are also implemented.
+4. Role switching feature is also included - this feature becomes automatically enabled when the logged in user has both realtor and 	     hunter roles assigned to him/her.
+5. A realtor is not allowed to create a house as long as he/she is not assigned to a company - Realtor can assign himself/herself a 	    company by clicking on edit profile link.
+6. An inquiry is associated with a house. So, to view/create/edit/delete an inquiry for a particular house, user should navigate to that specific house page.
+7. A response/reply is always associated with an inquiry for a house. So, to view/create/edit/delete a response, a realtor should navigate to that specific inquiry.
