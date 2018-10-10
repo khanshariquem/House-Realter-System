@@ -1,7 +1,7 @@
 ## This document explains all the functionalities with the workflow. 
 
-** You can access our web portal from the link below: **
-Application URL : **https://sheltered-anchorage-86797.herokuapp.com**
+**You can access our web portal from the link below:**
+Application URL : https://sheltered-anchorage-86797.herokuapp.com
 
 Admin Credentials:
 Email:admin@hns.com
