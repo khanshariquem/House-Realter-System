@@ -1,7 +1,8 @@
 ## This document explains all the functionalities with the workflow. 
 
 **You can access our web portal from the link below:**
-\n
+
+
 Application URL : https://sheltered-anchorage-86797.herokuapp.com
 
 Admin Credentials:
@@ -47,6 +48,9 @@ Web Application can be viewed in 3 roles:
 9.	He cannot alter details of any other houses.
 10.	Inside “List all Companies”, Realtor can view all companies registered. He can only edit the information of company, he is associated with.
 12.	They can also select to switch role from realtor to hunter from the edt profile page.
+13.     They can upload images of the houses they uploaded.
+14.     They can now check the potential buyers list.
+15.     They can delete their profile anytime they want.
 
 **Hunter:**
 1.	Hunter has option for the signup.
@@ -59,8 +63,8 @@ Web Application can be viewed in 3 roles:
 8.	Hunter can edit profile using right-top corner’s “edit profile”.
 9. 	Hunter can display his interest list from homepage with all teh relevat information about the house.
 10.	They can also select to switch role from Hunter to Realtor from the edt profile page.
-11. 	Now, a hunter can add houses to his interest list and see their photos too.
-12. 	They can deactivate their profile whenever they want.
+11.     Now, a hunter can add houses to his interest list and see their photos too.
+12.     They can deactivate their profile whenever they want.
 
 **Test Modules:**
 1. All model-tests are implmented which check the basic validations are working properly or not.
