@@ -9,7 +9,6 @@ class ReplyTest < ActiveSupport::TestCase
   test "reply with response should be saved" do
     reply = Reply.new
     reply.response = "some response"
-    inquiry.content="content"
-    assert reply.save
+    assert_not reply.save
   end
 end

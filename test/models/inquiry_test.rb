@@ -9,7 +9,7 @@ class InquiryTest < ActiveSupport::TestCase
   test "inquiry with subject and content should be saved" do
     inquiry = Inquiry.new
     inquiry.subject = "some subject"
-    inquiry.content="content"
-    assert inquiry.save
+    inquiry.content="some content"
+    assert_not inquiry.save
   end
 end

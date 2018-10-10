@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  house: one
-  hunter: one
+  house_id: one
+  user_id: one
 
 two:
-  house: two
-  hunter: two
+  house_id: two
+  user_id: two
+
+  <% 100.times do |n| %>
+house_id_<%= n %>:
+  house_id: <%= "house_id#{n}" %>
+  user_id: <%= "user_id#{n}" %>
+  <% end %>

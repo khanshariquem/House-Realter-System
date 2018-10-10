@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  user: one
-  contact_mode: MyString
-
-two:
-  user: two
-  contact_mode: MyString

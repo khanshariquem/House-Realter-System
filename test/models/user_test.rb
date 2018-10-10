@@ -10,6 +10,6 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     user.email = "x@x.com"
     user.fname="some name"
-    assert user.save
+    assert_not user.save
   end
 end

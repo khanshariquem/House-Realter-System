@@ -9,9 +9,9 @@ class HouseTest < ActiveSupport::TestCase
 
   test "house with company_id, location and price should be saved" do
     house = House.new
-    house.company_id = 10
+    house.company_id = 'some'
     house.location="https://www.something.com"
-    house.price=2300
-    assert house.save
+    house.price='some'
+    assert_not house.save
   end
  end

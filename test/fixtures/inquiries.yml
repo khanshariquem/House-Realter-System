@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  hunter: one
-  house_belongs_to: MyString
-  query: MyString
+  user_id: one
+  house_id: one
+  content: MyString
 
 two:
-  hunter: two
-  house_belongs_to: MyString
-  query: MyString
+  user_id: two
+  house_id: two
+  content: MyString

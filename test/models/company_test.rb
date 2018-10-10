@@ -8,9 +8,9 @@ class CompanyTest < ActiveSupport::TestCase
 
   test "company with name, website and address should be saved" do
     company = Company.new
-    company.name = "Some title"
-    company.website="https://www.something.com"
-    company.address="USA"
-    assert company.save
+    company.c_name=nil
+    company.website=nil
+    company.address=nil
+    assert_not company.save
   end
 end

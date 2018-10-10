@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  realtor: one
-  inquiry: one
-  response: MyString
+  user_id: 1
+  inquiry_id: 1
+  response: query1
 
 two:
-  realtor: two
-  inquiry: two
-  response: MyString
+  user_id: 2
+  inquiry_id: 2
+  response: is it working?
