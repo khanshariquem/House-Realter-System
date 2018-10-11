@@ -1,18 +1,16 @@
 ## This document explains all the functionalities with the workflow. 
 
-**You can access our web portal from the link given below (hosted on HEROKU)**
+### You can access our web portal using the application URL given below (hosted on HEROKU)
 
-**Application URL : https://sheltered-anchorage-86797.herokuapp.com**
-
-
-**Admin Credentials:**
-
-Email:admin@hns.com
-
-Password:admin5
+##### https://sheltered-anchorage-86797.herokuapp.com
 
 
-**NOTE:**
+### Admin Credentials:
+
+Email: admin@hns.com  &  Password: admin5
+
+
+### NOTE:
 
 1. A user can signup on the portal using a valid email or his/her facebook account. User needs to select the role while signing in or can add/change the role later by editing the profile. If the user uses facebook account to signup , user will b assigned a hunter role by default which can be change later by editing the profile details. 
 2. A valid email is required to get the benfits of the mailing features implemented in the application. 
@@ -26,13 +24,13 @@ Password:admin5
 
 
 
-Web Application can be viewed in 3 roles:
+### Web Application can be viewed in 3 roles:
 1. Admin
 2. Realtor
 3. House Hunter
 
 
-**Admin:**
+### Admin:
 
 1.	Web Application is preconfigured with an admin account. The admin credentials are provided above.
 2.	Admin can login via email and password from the signin page.
@@ -52,7 +50,8 @@ Web Application can be viewed in 3 roles:
 5.	Admin can logout using Logout option given in top-right corner.
 
 
-**Realtor:**
+
+### Realtor:
 
 1.	After signing up, the realtor can associate himself with a company by editing the profile information. He can choose any existing company in the system or create a new company in the edit profile page.
 2.	After login, Realtor can perform the following operations from the homepage:
@@ -60,17 +59,18 @@ Web Application can be viewed in 3 roles:
 	**List all companies**: All the companies available will be displayed with the relevant information. The realtor will be able to edit only the company he is assocaited with.
 	
 	**List all houses**: 
-	- User can view all houses registered with his companies and also houses from other companies. 
-	- He/she will be able to add/delete/edit information of houses associated to him/her.
-	- Realtors can also view the inquries associated with the house by navigating to the house. He/she will only be able to view the inquires for the house associated to his company.
-	- Realtors can also add image to the houses associated to his company.
-	- Realtors can also reply to the inquiries associated with the house by navigating to the inquiry of the house. He/she will only be able to reply to the inquiries of the houses associated to his company.
-	- Realtors can also check the potential buyers list of any house associated to his company by navigating to the house.
-	
+	- Realtors can view all houses registered with their companies and also the houses listed for other companies. 
+	- He/she will be able to add/delete/edit houses associated with him/her.
+	- Realtors can also view the inquries associated with any house of his/her company by navigating to its details page(by clicking on show button).
+	- Realtors can also add image to the houses associated with their company.
+	- Realtors can also reply to any inquiry associated with any house of his/her company by navigating to its details page(by clicking on show button).
+	- Realtors can also view the potential buyers list of any house associated with his/her company by navigating to its details page(by clicking on show button).
+	- This show button is not given for any house house that is not listed under their company. Therefore, the realtors cannot edit/delete or view/edit/delete the inquiries or reply to the inquiries associated with any house that is not listed under their company.
 3.	They can delete their profile anytime they want.
 
 
-**Hunter:**
+
+### Hunter:
 
 1. 	A house hunter can login using his/her email id and password.
 2.	After login, hunter can perform the following operations from the homepage:
