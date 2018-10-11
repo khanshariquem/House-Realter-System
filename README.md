@@ -1,6 +1,6 @@
 ## This document explains all the functionalities with the workflow. 
 
-**You can access our web portal from the link given below (hosted on HEROKU**
+**You can access our web portal from the link given below (hosted on HEROKU)**
 
 **Application URL : https://sheltered-anchorage-86797.herokuapp.com**
 
@@ -8,6 +8,7 @@
 **Admin Credentials:**
 
 Email:admin@hns.com
+
 Password:admin5
 
 
@@ -24,15 +25,18 @@ Password:admin5
 9. A response/reply is always associated with an inquiry for a house. So, to view/create/edit/delete a response, a realtor should navigate to that specific inquiry.
 
 
+
 Web Application can be viewed in 3 roles:
 1. Admin
 2. Realtor
 3. House Hunter
 
+
 **Admin:**
+
 1.	Web Application is preconfigured with an admin account. The admin credentials are provided above.
 2.	Admin can login via email and password from the signin page.
-3.	After logging in, admin can perform the following operations:
+3.	After logging in, admin can perform the following operations from the homepage:
 	
 	**List All Companies** - All the companies available will be displayed with the relevant information. The Admin can view / modify / delete the company.
 	
@@ -47,26 +51,29 @@ Web Application can be viewed in 3 roles:
 4.	Admin can also edit his profile but will not be able to delete the account.
 5.	Admin can logout using Logout option given in top-right corner.
 
+
 **Realtor:**
-1.	Realtor can have option for the signup. He can sign up using a name, email and password.
-2.	They can also select the option whether they want the access role as a hunter or not at the time of signup.
-3.	After signing up, the realtor can associate himself with a company by editing the profile information. He can choose any existing company in the system or create a new company in the edit profile page.
-4.	After login, they are displayed with 2 links on left side of window: List all companies & List all houses.
-5.	Inside “List All Houses”, they can view all houses registered with his companies and also houses from other companies. 
-6.	He can add/delete/edit information of houses associated to him only.
-7.	Realtors are also shown, “All inquiries” inside the specific house they choose to “show” inside the page “List All    houses”.
-8.	They also can reply to specific inquiries to the hunters.
-9.	He cannot alter details of any other houses.
-10.	Inside “List all Companies”, Realtor can view all companies registered. He can only edit the information of company, he is associated with.
-11.	They can also select to switch role from realtor to hunter from the edit profile page.
-12.	They can upload images of the houses they uploaded.
-13.	They can now check the potential buyers list.
-14.	They can delete their profile anytime they want.
+
+1.	After signing up, the realtor can associate himself with a company by editing the profile information. He can choose any existing company in the system or create a new company in the edit profile page.
+2.	After login, Realtor can perform the following operations from the homepage:
+
+	**List all companies**: All the companies available will be displayed with the relevant information. The realtor will be able to edit only the company he is assocaited with.
+	
+	**List all houses**: 
+	- User can view all houses registered with his companies and also houses from other companies. 
+	- He/she will be able to add/delete/edit information of houses associated to him/her.
+	- Realtors can also view the inquries associated with the house by navigating to the house. He/she will only be able to view the inquires for the house associated to his company.
+	- Realtors can also add image to the houses associated to his company.
+	- Realtors can also reply to the inquiries associated with the house by navigating to the inquiry of the house. He/she will only be able to reply to the inquiries of the houses associated to his company.
+	- Realtors can also check the potential buyers list of any house associated to his company by navigating to the house.
+	
+3.	They can delete their profile anytime they want.
 
 
 **Hunter:**
+
 1. 	A house hunter can login using his/her email id and password.
-2.	After login, hunter can perform the follwing operations from the homepage.
+2.	After login, hunter can perform the following operations from the homepage:
 
 	**List All Companies** - All the companies available will be displayed with the relevant information.
 	
