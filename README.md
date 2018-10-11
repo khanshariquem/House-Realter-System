@@ -36,11 +36,11 @@ Email: admin@hns.com  &  Password: admin5
 2.	Admin can login via email and password from the signin page.
 3.	After logging in, admin can perform the following operations from the homepage:
 	
-	**List All Companies** - All the companies available will be displayed with the relevant information. The Admin can view / modify / delete the company.
+	**List All Companies** - All the companies available will be displayed with the relevant information. The Admin can view/modify/delete the company.
 	
-	**List All Houses** - All the houses listed on the portal will be displayed with the relevant details. The Admin can view / modify / delete the listed house. When admin views the details of a house, he/she can also view/delete the inqueries associated with the house. Admin can also upload an image of the house.
+	**List All Houses** - All the houses listed on the portal will be displayed with the relevant details. The Admin can view/modify/delete the listed house. When admin views the details of a house, he/she can also view/delete the inqueries associated with the house. Admin can also upload an image of the house.
 	
-	**List All Users**- All the users registered on the portal will be displayed.The Admin can view / modify / delete the user.
+	**List All Users**- All the users registered on the portal will be displayed.The Admin can view/modify/delete the user.
 	
 	**Create New User** - Admin can create a new user in the portal and assign roles.
 	
